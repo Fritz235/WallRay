@@ -6,4 +6,8 @@
 //  Copyright © 2018 Fritz Oppelt. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class CustomCell : UITableViewCell{
+    @IBOutlet weak var number: UILabel!
+}

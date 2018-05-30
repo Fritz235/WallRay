@@ -12,10 +12,11 @@ import Parse
 class Raum {
     var objectId: Int
     var number: Int
-    var plan: Plan?
+    var planId: Int
     
-    init(objectId: Int, number: Int) {
+    init(objectId: Int, number: Int, planId: Int) {
         self.objectId = objectId
         self.number = number
+        self.planId = planId
     }
 }

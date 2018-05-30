@@ -1,0 +1,6 @@
+framework module Pods_WallRayUITests {
+  umbrella header "Pods-WallRayUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
