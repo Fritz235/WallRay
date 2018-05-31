@@ -19,4 +19,8 @@ class Raum {
         self.number = number
         self.planId = planId
     }
+    
+    convenience init(parseObject: PFObject) {
+        self.init(objectId: 1, number: parseObject["number"] as! Int, planId: parseObject["planId"] as! Int)
+    }
 }

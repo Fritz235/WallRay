@@ -4,19 +4,23 @@ PODS:
     - Parse/Core (= 1.17.1)
   - Parse/Core (1.17.1):
     - Bolts/Tasks (~> 1.9)
+  - TesseractOCRiOS (4.0.0)
 
 DEPENDENCIES:
   - Parse
+  - TesseractOCRiOS (= 4.0.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Bolts
     - Parse
+    - TesseractOCRiOS
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
+  TesseractOCRiOS: 90638afbe43d082433f2e76b384c7901d23956df
 
-PODFILE CHECKSUM: 0122efb45560b041bb4b8f35bda9533b7d480513
+PODFILE CHECKSUM: e23516465099b9cf6d18b2078850fc774a78398e
 
 COCOAPODS: 1.5.0
