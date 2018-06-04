@@ -9,18 +9,16 @@
 import Foundation
 import Parse
 
-class Raum {
+class Room {
     var objectId: Int
     var number: Int
-    var planId: Int
     
-    init(objectId: Int, number: Int, planId: Int) {
+    init(objectId: Int, number: Int) {
         self.objectId = objectId
         self.number = number
-        self.planId = planId
     }
     
     convenience init(parseObject: PFObject) {
-        self.init(objectId: 1, number: parseObject["number"] as! Int, planId: parseObject["planId"] as! Int)
+        self.init(objectId: 1, number: parseObject["number"] as! Int)
     }
 }

@@ -57,9 +57,27 @@
                     <view key="view" contentMode="scaleToFill" id="WTK-fp-lwR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQa-wB-xme">
+                                <rect key="frame" x="102" y="530" width="171" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a93-pp-MIZ">
+                                <rect key="frame" x="102" y="530" width="171" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonClick:" destination="Enb-xq-xKd" eventType="primaryActionTriggered" id="ul3-aR-8rQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6EC-PD-Gd1"/>
                     </view>
+                    <connections>
+                        <outlet property="StartAR" destination="a93-pp-MIZ" id="jrx-yh-4TE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2oH-IH-iRm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -68,7 +86,7 @@
         <!--AR-->
         <scene sceneID="cVh-Hc-0z7">
             <objects>
-                <viewController title="AR" id="uim-SZ-wqk" customClass="ARViewController" customModule="WallRay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARViewController" title="AR" id="uim-SZ-wqk" customClass="ARViewController" customModule="WallRay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AZ2-ND-fh8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Uc-vQ-jQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="724" y="-447.52623688155927"/>
+            <point key="canvasLocation" x="1018" y="-443"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iYT-CV-Zdy">

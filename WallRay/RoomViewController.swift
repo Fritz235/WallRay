@@ -11,12 +11,22 @@ import UIKit
 
 class RoomViewController : UIViewController {
     var number = 0
+    
+    @IBOutlet weak var StartAR: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(number)
         self.title = "Room " + String(number)
     }
     
+    @IBAction func buttonClick(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ARViewController") as! ARViewController
+        
+        vc.roomnumber = number
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

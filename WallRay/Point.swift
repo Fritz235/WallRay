@@ -10,13 +10,11 @@ import Foundation
 import Parse
 
 class Point {
-    var objectId: Int
     var x: Float
     var y: Float
     var z: Float
     
-    init(objectId: Int, x: Float, y: Float, z: Float) {
-        self.objectId = objectId
+    init(x: Float, y: Float, z: Float) {
         self.x = x
         self.y = y
         self.z = z

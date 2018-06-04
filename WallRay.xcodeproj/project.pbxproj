@@ -18,7 +18,7 @@
 		DA3A426B4D30FE49687AB83D /* Pods_WallRay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10EA622303A68FD27AA92DE7 /* Pods_WallRay.framework */; };
 		DC7BEEDD20BFF12B00232DF8 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BEEDC20BFF12B00232DF8 /* RoomViewController.swift */; };
 		DC7BEEDF20C002D100232DF8 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BEEDE20C002D100232DF8 /* ARViewController.swift */; };
-		DC8D9BF320BEB4C40069E8AD /* Raum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9BF220BEB4C40069E8AD /* Raum.swift */; };
+		DC8D9BF320BEB4C40069E8AD /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9BF220BEB4C40069E8AD /* Room.swift */; };
 		DC8D9BF520BEB6120069E8AD /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9BF420BEB6120069E8AD /* Plan.swift */; };
 		DC8D9BF720BEB8410069E8AD /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9BF620BEB8410069E8AD /* Line.swift */; };
 		DC8D9BF920BEB88D0069E8AD /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9BF820BEB88D0069E8AD /* Point.swift */; };
@@ -66,7 +66,7 @@
 		9AB1C6DD748D9A4C89E29CB4 /* Pods-WallRay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WallRay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WallRay/Pods-WallRay.debug.xcconfig"; sourceTree = "<group>"; };
 		DC7BEEDC20BFF12B00232DF8 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		DC7BEEDE20C002D100232DF8 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
-		DC8D9BF220BEB4C40069E8AD /* Raum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Raum.swift; sourceTree = "<group>"; };
+		DC8D9BF220BEB4C40069E8AD /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		DC8D9BF420BEB6120069E8AD /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		DC8D9BF620BEB8410069E8AD /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		DC8D9BF820BEB88D0069E8AD /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		1FE3CF0620BDAB3400A84DAD /* WallRay */ = {
 			isa = PBXGroup;
 			children = (
-				DC8D9BF220BEB4C40069E8AD /* Raum.swift */,
+				DC8D9BF220BEB4C40069E8AD /* Room.swift */,
 				DC8D9BF420BEB6120069E8AD /* Plan.swift */,
 				DC8D9BF620BEB8410069E8AD /* Line.swift */,
 				DC8D9BF820BEB88D0069E8AD /* Point.swift */,
@@ -444,7 +444,7 @@
 				DC7BEEDD20BFF12B00232DF8 /* RoomViewController.swift in Sources */,
 				DC7BEEDF20C002D100232DF8 /* ARViewController.swift in Sources */,
 				DC8D9BF520BEB6120069E8AD /* Plan.swift in Sources */,
-				DC8D9BF320BEB4C40069E8AD /* Raum.swift in Sources */,
+				DC8D9BF320BEB4C40069E8AD /* Room.swift in Sources */,
 				DC8D9BF720BEB8410069E8AD /* Line.swift in Sources */,
 				1FE3CF0820BDAB3400A84DAD /* AppDelegate.swift in Sources */,
 			);
@@ -624,14 +624,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 29N7EX858D;
+				DEVELOPMENT_TEAM = 6E26M5KYR3;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = WallRay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Ohlsen.WallRay;
+				PRODUCT_BUNDLE_IDENTIFIER = Finzel.WallRay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -646,14 +646,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 29N7EX858D;
+				DEVELOPMENT_TEAM = 6E26M5KYR3;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = WallRay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Ohlsen.WallRay;
+				PRODUCT_BUNDLE_IDENTIFIER = Finzel.WallRay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

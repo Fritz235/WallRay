@@ -11,10 +11,12 @@ import Parse
 
 class Plan {
     var objectId: Int
+    var planId: Int
     var lines: [Line?] = []
     
-    init(objectId: Int) {
+    init(objectId: Int, planId: Int) {
         self.objectId = objectId
+        self.planId = planId
     }
     
     func addLine(line: Line) {

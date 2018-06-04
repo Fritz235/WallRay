@@ -10,9 +10,7 @@ import UIKit
 import Parse
 class TableViewController: UITableViewController {
     //var room = [PFObject]()
-    var rooms: [Raum] = []
-    var numbers = [""]
-    var objectIds = [""]
+    var rooms: [Room] = []
     
     var refresher: UIRefreshControl = UIRefreshControl()
     
@@ -27,17 +25,14 @@ class TableViewController: UITableViewController {
     func updateTable() {
         let roomquery = PFQuery(className: "Raum")
         //roomquery.whereKeyExists("planId")
+        roomquery.order(byAscending: "number")
         roomquery.findObjectsInBackground ( block: { (rooms, error) in
             
             //print(rooms[0]["number"])
             if error == nil {
                 for room in rooms! {
-                    //print(room["objectId"])
-                    print(room["number"])
-                    print(room["planId"])
-                    self.rooms.append(Raum(objectId: 1, number: room["number"] as! Int, planId: room["planId"] as! Int))
-                        
-                    }
+                    self.rooms.append(Room(objectId: 1, number: room["number"] as! Int))       
+                }
               
             }
             
@@ -76,12 +71,10 @@ class TableViewController: UITableViewController {
         //getting the current cell from the index path
         let currentCell = tableView.cellForRow(at: indexPath!)! as UITableViewCell
         
-        //getting the text of that cell
-        let currentItem = currentCell.textLabel!.text
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "RoomViewController") as! RoomViewController
-        vc.number = 200
+        
+        vc.number = Int((currentCell.textLabel?.text)!)!
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
