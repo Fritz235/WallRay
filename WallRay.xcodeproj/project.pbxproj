@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F77304C20C5775000AA9F62 /* ChangeLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77304B20C5775000AA9F62 /* ChangeLog.swift */; };
+		1F77304C20C5775000AA9F62 /* ChangelogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77304B20C5775000AA9F62 /* ChangelogEntry.swift */; };
 		1FE3CF0820BDAB3400A84DAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3CF0720BDAB3400A84DAD /* AppDelegate.swift */; };
 		1FE3CF1120BDAB3400A84DAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FE3CF0F20BDAB3400A84DAD /* Main.storyboard */; };
 		1FE3CF1320BDAB3400A84DAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FE3CF1220BDAB3400A84DAD /* Assets.xcassets */; };
@@ -45,7 +45,7 @@
 
 /* Begin PBXFileReference section */
 		10EA622303A68FD27AA92DE7 /* Pods_WallRay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WallRay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F77304B20C5775000AA9F62 /* ChangeLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLog.swift; sourceTree = "<group>"; };
+		1F77304B20C5775000AA9F62 /* ChangelogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelogEntry.swift; sourceTree = "<group>"; };
 		1FE3CF0420BDAB3400A84DAD /* WallRay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WallRay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE3CF0720BDAB3400A84DAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FE3CF1020BDAB3400A84DAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 				DC8D9BF420BEB6120069E8AD /* Plan.swift */,
 				DC8D9BF620BEB8410069E8AD /* Line.swift */,
 				DC8D9BF820BEB88D0069E8AD /* Point.swift */,
-				1F77304B20C5775000AA9F62 /* ChangeLog.swift */,
+				1F77304B20C5775000AA9F62 /* ChangelogEntry.swift */,
 				1FE3CF0720BDAB3400A84DAD /* AppDelegate.swift */,
 				1FE3CF0F20BDAB3400A84DAD /* Main.storyboard */,
 				1FE3CF1220BDAB3400A84DAD /* Assets.xcassets */,
@@ -444,7 +444,7 @@
 			files = (
 				DC8D9BF920BEB88D0069E8AD /* Point.swift in Sources */,
 				DC8D9C0120BEC2270069E8AD /* TableViewController.swift in Sources */,
-				1F77304C20C5775000AA9F62 /* ChangeLog.swift in Sources */,
+				1F77304C20C5775000AA9F62 /* ChangelogEntry.swift in Sources */,
 				DC7BEEDD20BFF12B00232DF8 /* RoomViewController.swift in Sources */,
 				DC7BEEDF20C002D100232DF8 /* ARViewController.swift in Sources */,
 				DC8D9BF520BEB6120069E8AD /* Plan.swift in Sources */,

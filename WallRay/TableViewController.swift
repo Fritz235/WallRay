@@ -78,5 +78,33 @@ class TableViewController: UITableViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let query = PFQuery(className: "Raum")
+            query.whereKey("number", equalTo: rooms[indexPath.row].number)
+            query.findObjectsInBackground ( block: { (rooms, error) in
+                if error == nil {
+                    for room in rooms! {
+                        room.deleteEventually()
+                    }
+                }
+            })
+            
+            let linequery = PFQuery(className: "Line")
+            linequery.whereKey("roomId", equalTo: rooms[indexPath.row].number)
+            linequery.findObjectsInBackground ( block: { (lines, error) in
+                if error == nil {
+                    for line in lines! {
+                        line.deleteEventually()
+                    }
+                }
+            })
+            
+            rooms.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
+    }
 }
 

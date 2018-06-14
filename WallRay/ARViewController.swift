@@ -21,22 +21,6 @@ extension SCNGeometry {
 extension SCNVector3
 {
     /**
-     * Negates the vector described by SCNVector3 and returns
-     * the result as a new SCNVector3.
-     */
-    func negate() -> SCNVector3 {
-        return self * -1
-    }
-    
-    /**
-     * Negates the vector described by SCNVector3
-     */
-    mutating func negated() -> SCNVector3 {
-        self = negate()
-        return self
-    }
-    
-    /**
      * Returns the length (magnitude) of the vector described by the SCNVector3
      */
     func length() -> Float {
@@ -168,13 +152,6 @@ func /= ( vector: inout SCNVector3, scalar: Float) {
 }
 
 /**
- * Negate a vector
- */
-func SCNVector3Negate(vector: SCNVector3) -> SCNVector3 {
-    return vector * -1
-}
-
-/**
  * Returns the length (magnitude) of the vector described by the SCNVector3
  */
 func SCNVector3Length(vector: SCNVector3) -> Float
@@ -196,35 +173,6 @@ func SCNVector3Normalize(vector: SCNVector3) -> SCNVector3 {
     return vector / SCNVector3Length(vector: vector)
 }
 
-/**
- * Calculates the dot product between two SCNVector3 vectors
- */
-func SCNVector3DotProduct(left: SCNVector3, right: SCNVector3) -> Float {
-    return left.x * right.x + left.y * right.y + left.z * right.z
-}
-
-/**
- * Calculates the cross product between two SCNVector3 vectors
- */
-func SCNVector3CrossProduct(left: SCNVector3, right: SCNVector3) -> SCNVector3 {
-    return SCNVector3Make(left.y * right.z - left.z * right.y, left.z * right.x - left.x * right.z, left.x * right.y - left.y * right.x)
-}
-
-/**
- * Calculates the SCNVector from lerping between two SCNVector3 vectors
- */
-func SCNVector3Lerp(vectorStart: SCNVector3, vectorEnd: SCNVector3, t: Float) -> SCNVector3 {
-    return SCNVector3Make(vectorStart.x + ((vectorEnd.x - vectorStart.x) * t), vectorStart.y + ((vectorEnd.y - vectorStart.y) * t), vectorStart.z + ((vectorEnd.z - vectorStart.z) * t))
-}
-
-/**
- * Project the vector, vectorToProject, onto the vector, projectionVector.
- */
-func SCNVector3Project(vectorToProject: SCNVector3, projectionVector: SCNVector3) -> SCNVector3 {
-    let scale: Float = SCNVector3DotProduct(left: projectionVector, right: vectorToProject) / SCNVector3DotProduct(left: projectionVector, right: projectionVector)
-    let v: SCNVector3 = projectionVector * scale
-    return v
-}
 extension SCNNode {
     static func lineNode(from: SCNVector3, to: SCNVector3, radius: CGFloat = 0.25) -> SCNNode {
         let vector = to - from
@@ -232,7 +180,7 @@ extension SCNNode {
         let cylinder = SCNCylinder(radius: radius, height: CGFloat(height))
         cylinder.radialSegmentCount = 4
         let node = SCNNode(geometry: cylinder)
-        node.position = (to + from) / 2
+        node.position = (from + to) / 2
         node.eulerAngles = SCNVector3.lineEulerAngles(vector: vector)
         return node
     }
@@ -268,7 +216,7 @@ class ARViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        render()
         /*let box = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
         
         let boxNode = SCNNode()
@@ -322,8 +270,8 @@ class ARViewController : UIViewController {
     func render() {
         let cyl = SCNCylinder(radius: 0.2, height: 1)
         
-        let node = SCNNode(geometry: cyl)
-        node.position = SCNVector3Zero
+        let node = SCNNode.lineNode(from: SCNVector3Make(0, 0, 0), to: SCNVector3Make(1, 1, 1))
+        //node.position = SCNVector3Zero
         
         sceneView.scene.rootNode.addChildNode((node))
     }
