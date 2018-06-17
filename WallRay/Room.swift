@@ -10,15 +10,17 @@ import Foundation
 import Parse
 
 class Room {
-    var objectId: Int
+    var id: String
     var number: Int
+    var houseId: String
     
-    init(objectId: Int, number: Int) {
-        self.objectId = objectId
+    init(id: String, number: Int, houseId: String) {
+        self.id = id;
         self.number = number
+        self.houseId = houseId
     }
     
     convenience init(parseObject: PFObject) {
-        self.init(objectId: 1, number: parseObject["number"] as! Int)
+        self.init(id: parseObject["roomId"] as! String, number: parseObject["number"] as! Int, houseId: parseObject["houseId"] as! String)
     }
 }

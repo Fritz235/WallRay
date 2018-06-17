@@ -8,10 +8,10 @@
 
 import UIKit
 import Parse
-class TableViewController: UITableViewController {
+class HouseTableViewController: UITableViewController {
     //var room = [PFObject]()
-    var rooms: [Room] = []
-    var houseId = 0
+    var houses: [House] = []
+    
     var refresher: UIRefreshControl = UIRefreshControl()
     
     @IBAction func logoutUser(_ sender: Any) {
@@ -23,18 +23,19 @@ class TableViewController: UITableViewController {
     }
     
     func updateTable() {
-        let roomquery = PFQuery(className: "Raum")
-        roomquery.whereKey("houseId", contains: String(houseId))
+        houses.removeAll(keepingCapacity: false)
+        
+        let housequery = PFQuery(className: "House")
         //roomquery.whereKeyExists("planId")
-        roomquery.order(byAscending: "number")
-        roomquery.findObjectsInBackground ( block: { (rooms, error) in
+        housequery.order(byAscending: "street")
+        housequery.findObjectsInBackground ( block: { (houses, error) in
             
             //print(rooms[0]["number"])
             if error == nil {
-                for room in rooms! {
-                    self.rooms.append(Room(parseObject: room ))
+                for house in houses! {
+                    self.houses.append(House(parseObject: house))
                 }
-              
+                
             }
             
             self.tableView.reloadData()
@@ -45,26 +46,31 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         
         refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
-       
-        updateTable()
+        
+        //updateTable()
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        updateTable()
+        
+    }
     override func didReceiveMemoryWarning() {
-     super.didReceiveMemoryWarning()
-     // Dispose of any resources that can be recreated.
-     }
-     
-     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rooms.count
-     }
-     
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-         let rowRoom = rooms[indexPath.row]
-         cell.textLabel?.text = String(rowRoom.number)
-         return cell
-     }
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return houses.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let rowHouse = houses[indexPath.row]
+        cell.tag = Int(rowHouse.id)!
+        cell.textLabel?.text = String(rowHouse.street) + " " + String(rowHouse.housenumber)
+        return cell
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indexPath = tableView.indexPathForSelectedRow
@@ -73,16 +79,17 @@ class TableViewController: UITableViewController {
         let currentCell = tableView.cellForRow(at: indexPath!)! as UITableViewCell
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "RoomViewController") as! RoomViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "RoomTableViewController") as! TableViewController
+        vc.houseId = currentCell.tag
+        vc.title = String(houses[(indexPath?.row)!].street) + " " + String(houses[(indexPath?.row)!].housenumber)
         
-        vc.number = Int((currentCell.textLabel?.text)!)!
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let query = PFQuery(className: "Raum")
-            query.whereKey("number", equalTo: rooms[indexPath.row].number)
+            let query = PFQuery(className: "House")
+            query.whereKey("id", equalTo: houses[indexPath.row].id)
             query.findObjectsInBackground ( block: { (rooms, error) in
                 if error == nil {
                     for room in rooms! {
@@ -91,7 +98,17 @@ class TableViewController: UITableViewController {
                 }
             })
             
-            let linequery = PFQuery(className: "Line")
+            let roomquery = PFQuery(className: "Raum")
+            roomquery.whereKey("houseId", equalTo: houses[indexPath.row].id)
+            roomquery.findObjectsInBackground ( block: { (rooms, error) in
+                if error == nil {
+                    for room in rooms! {
+                        room.deleteEventually()
+                    }
+                }
+            })
+            
+            /*let linequery = PFQuery(className: "Line")
             linequery.whereKey("roomId", equalTo: rooms[indexPath.row].number)
             linequery.findObjectsInBackground ( block: { (lines, error) in
                 if error == nil {
@@ -99,9 +116,9 @@ class TableViewController: UITableViewController {
                         line.deleteEventually()
                     }
                 }
-            })
+            })*/
             
-            rooms.remove(at: indexPath.row)
+            houses.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

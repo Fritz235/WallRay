@@ -19,7 +19,7 @@ class RoomViewController : UIViewController {
         print(number)
         self.title = "Room " + String(number)
         
-        var entry = ChangelogEntry(username: "Hallo", lineId: 1, roomId: 1, type: "");
+        //var entry = ChangelogEntry(username: "Hallo", lineId: 1, roomId: 1, type: "");
     }
     
     @IBAction func buttonClick(_ sender: Any) {
