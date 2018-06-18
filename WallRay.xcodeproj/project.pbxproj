@@ -10,6 +10,7 @@
 		0975ABE420D42348005CC383 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975ABE320D42348005CC383 /* House.swift */; };
 		0975ABE620D4251B005CC383 /* HouseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975ABE520D4251B005CC383 /* HouseTableViewController.swift */; };
 		0975ABE820D5B042005CC383 /* AddHouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975ABE720D5B042005CC383 /* AddHouseViewController.swift */; };
+		09CEE77420D7BF1C0096CBB0 /* AddRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CEE77320D7BF1C0096CBB0 /* AddRoomViewController.swift */; };
 		1F77304C20C5775000AA9F62 /* ChangelogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77304B20C5775000AA9F62 /* ChangelogEntry.swift */; };
 		1FE3CF0820BDAB3400A84DAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3CF0720BDAB3400A84DAD /* AppDelegate.swift */; };
 		1FE3CF1120BDAB3400A84DAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FE3CF0F20BDAB3400A84DAD /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		0975ABE320D42348005CC383 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		0975ABE520D4251B005CC383 /* HouseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewController.swift; sourceTree = "<group>"; };
 		0975ABE720D5B042005CC383 /* AddHouseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHouseViewController.swift; sourceTree = "<group>"; };
+		09CEE77320D7BF1C0096CBB0 /* AddRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomViewController.swift; sourceTree = "<group>"; };
 		10EA622303A68FD27AA92DE7 /* Pods_WallRay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WallRay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F77304B20C5775000AA9F62 /* ChangelogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelogEntry.swift; sourceTree = "<group>"; };
 		1FE3CF0420BDAB3400A84DAD /* WallRay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WallRay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +152,7 @@
 				0975ABE320D42348005CC383 /* House.swift */,
 				0975ABE520D4251B005CC383 /* HouseTableViewController.swift */,
 				0975ABE720D5B042005CC383 /* AddHouseViewController.swift */,
+				09CEE77320D7BF1C0096CBB0 /* AddRoomViewController.swift */,
 			);
 			path = WallRay;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				DC7BEEDF20C002D100232DF8 /* ARViewController.swift in Sources */,
 				DC8D9BF520BEB6120069E8AD /* Plan.swift in Sources */,
 				DC8D9BF320BEB4C40069E8AD /* Room.swift in Sources */,
+				09CEE77420D7BF1C0096CBB0 /* AddRoomViewController.swift in Sources */,
 				DC8D9BF720BEB8410069E8AD /* Line.swift in Sources */,
 				0975ABE620D4251B005CC383 /* HouseTableViewController.swift in Sources */,
 				1FE3CF0820BDAB3400A84DAD /* AppDelegate.swift in Sources */,

@@ -80,7 +80,7 @@ class HouseTableViewController: UITableViewController {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "RoomTableViewController") as! TableViewController
-        vc.houseId = currentCell.tag
+        vc.houseId = String(currentCell.tag)
         vc.title = String(houses[(indexPath?.row)!].street) + " " + String(houses[(indexPath?.row)!].housenumber)
         
         self.navigationController?.pushViewController(vc, animated: true)

@@ -11,7 +11,7 @@ import Parse
 class TableViewController: UITableViewController {
     //var room = [PFObject]()
     var rooms: [Room] = []
-    var houseId = 0
+    var houseId = ""
     var refresher: UIRefreshControl = UIRefreshControl()
     
     @IBAction func logoutUser(_ sender: Any) {
@@ -22,9 +22,20 @@ class TableViewController: UITableViewController {
         
     }
     
+    
+    @IBAction func ButtonAddClick(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "AddRoomViewController") as! AddRoomViewController
+        
+        vc.houseId = self.houseId
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func updateTable() {
+        rooms.removeAll(keepingCapacity: false)
+        
         let roomquery = PFQuery(className: "Raum")
-        roomquery.whereKey("houseId", contains: String(houseId))
+        roomquery.whereKey("houseId", contains: houseId)
         //roomquery.whereKeyExists("planId")
         roomquery.order(byAscending: "number")
         roomquery.findObjectsInBackground ( block: { (rooms, error) in
@@ -45,11 +56,11 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         
         refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
-       
-        updateTable()
-        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        updateTable()
+    }
     override func didReceiveMemoryWarning() {
      super.didReceiveMemoryWarning()
      // Dispose of any resources that can be recreated.
