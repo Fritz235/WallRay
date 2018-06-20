@@ -42,9 +42,6 @@ class AddRoomViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-        //tap.cancelsTouchesInView = false
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

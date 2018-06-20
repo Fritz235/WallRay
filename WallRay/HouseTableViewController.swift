@@ -89,11 +89,11 @@ class HouseTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let query = PFQuery(className: "House")
-            query.whereKey("id", equalTo: houses[indexPath.row].id)
-            query.findObjectsInBackground ( block: { (rooms, error) in
+            query.whereKey("houseId", equalTo: houses[indexPath.row].id)
+            query.findObjectsInBackground ( block: { (houses, error) in
                 if error == nil {
-                    for room in rooms! {
-                        room.deleteEventually()
+                    for house in houses! {
+                        house.deleteEventually()
                     }
                 }
             })
@@ -104,19 +104,21 @@ class HouseTableViewController: UITableViewController {
                 if error == nil {
                     for room in rooms! {
                         room.deleteEventually()
+                        
+                        let linequery = PFQuery(className: "Line")
+                        linequery.whereKey("roomId", equalTo: room["number"] as! String)
+                        linequery.findObjectsInBackground ( block: { (lines, error) in
+                            if error == nil {
+                                for line in lines! {
+                                    line.deleteEventually()
+                                }
+                            }
+                        })
                     }
                 }
             })
             
-            /*let linequery = PFQuery(className: "Line")
-            linequery.whereKey("roomId", equalTo: rooms[indexPath.row].number)
-            linequery.findObjectsInBackground ( block: { (lines, error) in
-                if error == nil {
-                    for line in lines! {
-                        line.deleteEventually()
-                    }
-                }
-            })*/
+            
             
             houses.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
