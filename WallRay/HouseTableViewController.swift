@@ -106,7 +106,7 @@ class HouseTableViewController: UITableViewController {
                         room.deleteEventually()
                         
                         let linequery = PFQuery(className: "Line")
-                        linequery.whereKey("roomId", equalTo: room["number"] as! String)
+                        linequery.whereKey("roomId", equalTo: room["roomId"] as! String)
                         linequery.findObjectsInBackground ( block: { (lines, error) in
                             if error == nil {
                                 for line in lines! {

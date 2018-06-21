@@ -73,7 +73,7 @@ class TableViewController: UITableViewController {
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
          let rowRoom = rooms[indexPath.row]
-         cell.textLabel?.text = String(rowRoom.number)      
+         cell.textLabel?.text = String(rowRoom.number)
          return cell
      }
     
@@ -86,7 +86,8 @@ class TableViewController: UITableViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "RoomViewController") as! RoomViewController
         
-        vc.number = Int((currentCell.textLabel?.text)!)!
+        //vc.number = Int((currentCell.textLabel?.text)!)!
+        vc.room = rooms[(indexPath?.row)!]
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
