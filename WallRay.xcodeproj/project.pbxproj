@@ -24,7 +24,6 @@
 		DC7BEEDD20BFF12B00232DF8 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BEEDC20BFF12B00232DF8 /* RoomViewController.swift */; };
 		DC7BEEDF20C002D100232DF8 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BEEDE20C002D100232DF8 /* ARViewController.swift */; };
 		DC8D9BF320BEB4C40069E8AD /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9BF220BEB4C40069E8AD /* Room.swift */; };
-		DC8D9BF520BEB6120069E8AD /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9BF420BEB6120069E8AD /* Plan.swift */; };
 		DC8D9BF720BEB8410069E8AD /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9BF620BEB8410069E8AD /* Line.swift */; };
 		DC8D9BF920BEB88D0069E8AD /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9BF820BEB88D0069E8AD /* Point.swift */; };
 		DC8D9C0120BEC2270069E8AD /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9C0020BEC2270069E8AD /* TableViewController.swift */; };
@@ -77,7 +76,6 @@
 		DC7BEEDC20BFF12B00232DF8 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		DC7BEEDE20C002D100232DF8 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		DC8D9BF220BEB4C40069E8AD /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
-		DC8D9BF420BEB6120069E8AD /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		DC8D9BF620BEB8410069E8AD /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		DC8D9BF820BEB88D0069E8AD /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		DC8D9C0020BEC2270069E8AD /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				DC8D9BF220BEB4C40069E8AD /* Room.swift */,
-				DC8D9BF420BEB6120069E8AD /* Plan.swift */,
 				DC8D9BF620BEB8410069E8AD /* Line.swift */,
 				DC8D9BF820BEB88D0069E8AD /* Point.swift */,
 				1F77304B20C5775000AA9F62 /* ChangelogEntry.swift */,
@@ -460,7 +457,6 @@
 				0975ABE420D42348005CC383 /* House.swift in Sources */,
 				DC7BEEDD20BFF12B00232DF8 /* RoomViewController.swift in Sources */,
 				DC7BEEDF20C002D100232DF8 /* ARViewController.swift in Sources */,
-				DC8D9BF520BEB6120069E8AD /* Plan.swift in Sources */,
 				DC8D9BF320BEB4C40069E8AD /* Room.swift in Sources */,
 				09CEE77420D7BF1C0096CBB0 /* AddRoomViewController.swift in Sources */,
 				DC8D9BF720BEB8410069E8AD /* Line.swift in Sources */,
