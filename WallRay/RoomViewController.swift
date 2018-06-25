@@ -10,18 +10,30 @@ import Foundation
 import UIKit
 
 class RoomViewController : UIViewController {
+    
     var number = 0
     var room : Room? = nil
-    @IBOutlet weak var StartAR: UIButton!
+    
+    @IBOutlet weak var StartARTop: RoundedButton!
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var changelogCollectionView: UICollectionView!
+    @IBOutlet weak var statsCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        topView.layer.cornerRadius = 12
+        
+        topView.layer.shadowColor = UIColor.black.cgColor
+        topView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        topView.layer.shadowOpacity = 0.7
+        topView.layer.shadowRadius = 10
+        
         print(number)
         self.title = "Room " + String(self.room!.number)
-        
     }
     
-    @IBAction func buttonClick(_ sender: Any) {
+    @IBAction func buttonClickShow(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ARViewController") as! ARViewController
         
@@ -31,5 +43,33 @@ class RoomViewController : UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+extension RoomViewController:UICollectionViewDelegate,UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var cell = changelogCollectionViewCell()
+        if (collectionView == self.changelogCollectionView) {
+            var cell = changelogCollectionView.dequeueReusableCell(withReuseIdentifier: "changelogCollectionCell", for: indexPath) as! changelogCollectionViewCell
+            cell.cellLabelName.text = String(indexPath.row)
+            cell.cellLabelDate.text = "Date"
+            cell.cellLabelStatus.text = "Status"
+            cell.layer.cornerRadius = 15
+            cell.layer.masksToBounds = true
+            return cell
+        } else if (collectionView == self.statsCollectionView) {
+            var cell = statsCollectionView.dequeueReusableCell(withReuseIdentifier: "statsCollectionCell", for: indexPath) as! statsCollectionViewCell
+            cell.cellLabelName.text = "Statistik"
+            cell.cellLabelDate.text = "Wert"
+            cell.cellLabelStatus.text = "Zweiter Wert"
+            cell.layer.cornerRadius = 15
+            cell.layer.masksToBounds = true
+            return cell
+        }
+        return cell
     }
 }

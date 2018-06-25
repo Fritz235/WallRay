@@ -8,7 +8,7 @@
 
 import UIKit
 
-class changelogCollectionViewCell: UICollectionViewCell {
+class statsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cellLabelName: UILabel!
     @IBOutlet weak var cellLabelDate: UILabel!
     @IBOutlet weak var cellLabelStatus: UILabel!
