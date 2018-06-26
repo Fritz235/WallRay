@@ -463,22 +463,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="0mt-Au-GIs" style="IBUITableViewCellStyleDefault" id="7eu-kt-qlK">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="89" id="Fga-Tu-c0X" customClass="HouseTableViewCell" customModule="WallRay" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="89"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7eu-kt-qlK" id="gGb-le-DdN">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fga-Tu-c0X" id="fGE-Jh-96j">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0mt-Au-GIs">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Quc-dK-wO6">
+                                            <rect key="frame" x="12" y="8" width="64" height="64"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="64" id="aQp-ne-rOZ"/>
+                                                <constraint firstAttribute="height" constant="64" id="bRc-3F-VwV"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Haus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6UY-8t-wZh">
+                                            <rect key="frame" x="84" y="8" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inhaber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPa-l8-mDF">
+                                            <rect key="frame" x="84" y="31" width="58" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bPa-l8-mDF" firstAttribute="top" secondItem="6UY-8t-wZh" secondAttribute="bottom" constant="2" id="63W-5s-Zcj"/>
+                                        <constraint firstItem="6UY-8t-wZh" firstAttribute="leading" secondItem="Quc-dK-wO6" secondAttribute="trailing" constant="8" id="745-V6-GWu"/>
+                                        <constraint firstItem="bPa-l8-mDF" firstAttribute="leading" secondItem="Quc-dK-wO6" secondAttribute="trailing" constant="8" id="CJZ-8W-Xt2"/>
+                                        <constraint firstItem="6UY-8t-wZh" firstAttribute="top" secondItem="fGE-Jh-96j" secondAttribute="top" constant="8" id="biH-AE-DrV"/>
+                                        <constraint firstItem="Quc-dK-wO6" firstAttribute="leading" secondItem="fGE-Jh-96j" secondAttribute="leading" constant="12" id="h48-4B-RMm"/>
+                                        <constraint firstItem="bPa-l8-mDF" firstAttribute="top" secondItem="6UY-8t-wZh" secondAttribute="bottom" constant="2" id="mFj-Ws-Gcl"/>
+                                        <constraint firstItem="Quc-dK-wO6" firstAttribute="top" secondItem="fGE-Jh-96j" secondAttribute="top" constant="8" id="n1K-IJ-6Zy"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="houseImageView" destination="Quc-dK-wO6" id="FMp-Pf-AWu"/>
+                                    <outlet property="houseInhaberView" destination="bPa-l8-mDF" id="Jd4-k4-MZW"/>
+                                    <outlet property="houseNameView" destination="6UY-8t-wZh" id="Lea-yD-h3a"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -500,7 +526,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jve-Ie-Gxc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="aD4-GG-VZZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1778" y="-443"/>
+            <point key="canvasLocation" x="-1778.4000000000001" y="-443.02848575712147"/>
         </scene>
         <!--Add room-->
         <scene sceneID="QIP-A4-vqx">

@@ -65,10 +65,12 @@ class HouseTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! HouseTableViewCell
         let rowHouse = houses[indexPath.row]
         cell.tag = Int(rowHouse.id)!
-        cell.textLabel?.text = String(rowHouse.street) + " " + String(rowHouse.housenumber)
+        cell.houseInhaberView?.text = "Rene"
+        cell.houseNameView?.text = "Galaafksld"
+        //cell.textLabel?.text = String(rowHouse.street) + " " + String(rowHouse.housenumber)
         return cell
     }
     

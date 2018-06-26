@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0975ABE420D42348005CC383 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975ABE320D42348005CC383 /* House.swift */; };
+		09CEE77620E24EF80096CBB0 /* HouseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CEE77520E24EF80096CBB0 /* HouseTableViewCell.swift */; };
 		1FE3CF1120BDAB3400A84DAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FE3CF0F20BDAB3400A84DAD /* Main.storyboard */; };
 		1FE3CF2120BDAB3500A84DAD /* WallRayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3CF2020BDAB3500A84DAD /* WallRayTests.swift */; };
 		1FE3CF2C20BDAB3500A84DAD /* WallRayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3CF2B20BDAB3500A84DAD /* WallRayUITests.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		0975ABE320D42348005CC383 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
+		09CEE77520E24EF80096CBB0 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
 		10EA622303A68FD27AA92DE7 /* Pods_WallRay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WallRay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE3CF0420BDAB3400A84DAD /* WallRay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WallRay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE3CF1020BDAB3400A84DAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 		DC1CCCA420E1529E000EF887 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				09CEE77520E24EF80096CBB0 /* HouseTableViewCell.swift */,
 				DC1CCC7820E15288000EF887 /* CustomCell.swift */,
 				DC1CCC7A20E15288000EF887 /* changelogCollectionViewCell.swift */,
 				DC1CCC8620E1528A000EF887 /* statsCollectionViewCell.swift */,
@@ -507,6 +510,7 @@
 				DC1CCC9E20E1528A000EF887 /* RoomViewController.swift in Sources */,
 				DC1CCC9420E1528A000EF887 /* CustomCell.swift in Sources */,
 				DC1CCC8A20E1528A000EF887 /* HouseTableViewController.swift in Sources */,
+				09CEE77620E24EF80096CBB0 /* HouseTableViewCell.swift in Sources */,
 				0975ABE420D42348005CC383 /* House.swift in Sources */,
 				DC1CCC8920E1528A000EF887 /* Point.swift in Sources */,
 				DC1CCC9620E1528A000EF887 /* changelogCollectionViewCell.swift in Sources */,
