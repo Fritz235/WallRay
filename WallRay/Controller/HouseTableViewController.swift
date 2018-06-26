@@ -26,11 +26,10 @@ class HouseTableViewController: UITableViewController {
         houses.removeAll(keepingCapacity: false)
         
         let housequery = PFQuery(className: "House")
-        //roomquery.whereKeyExists("planId")
+        
         housequery.order(byAscending: "street")
         housequery.findObjectsInBackground ( block: { (houses, error) in
             
-            //print(rooms[0]["number"])
             if error == nil {
                 for house in houses! {
                     self.houses.append(House(parseObject: house))
