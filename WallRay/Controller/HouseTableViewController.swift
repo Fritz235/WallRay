@@ -69,7 +69,7 @@ class HouseTableViewController: UITableViewController {
         let rowHouse = houses[indexPath.row]
         cell.tag = Int(rowHouse.id)!
         cell.houseInhaberView?.text = "Rene"
-        cell.houseNameView?.text = "Galaafksld"
+        cell.houseNameView?.text = "straße"
         //cell.textLabel?.text = String(rowHouse.street) + " " + String(rowHouse.housenumber)
         return cell
     }
