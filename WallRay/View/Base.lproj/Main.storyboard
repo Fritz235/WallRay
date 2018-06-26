@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -463,11 +464,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="89" id="Fga-Tu-c0X" customClass="HouseTableViewCell" customModule="WallRay" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="89"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="132" id="Fga-Tu-c0X" customClass="HouseTableViewCell" customModule="WallRay" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="132"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fga-Tu-c0X" id="fGE-Jh-96j">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="131.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Quc-dK-wO6">
@@ -477,14 +478,14 @@
                                                 <constraint firstAttribute="height" constant="64" id="bRc-3F-VwV"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Haus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6UY-8t-wZh">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Haus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6UY-8t-wZh">
                                             <rect key="frame" x="84" y="8" width="42" height="21"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inhaber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPa-l8-mDF">
-                                            <rect key="frame" x="84" y="31" width="58" height="21"/>
+                                            <rect key="frame" x="84" y="31" width="58" height="82"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -498,6 +499,7 @@
                                         <constraint firstItem="Quc-dK-wO6" firstAttribute="leading" secondItem="fGE-Jh-96j" secondAttribute="leading" constant="12" id="h48-4B-RMm"/>
                                         <constraint firstItem="bPa-l8-mDF" firstAttribute="top" secondItem="6UY-8t-wZh" secondAttribute="bottom" constant="2" id="mFj-Ws-Gcl"/>
                                         <constraint firstItem="Quc-dK-wO6" firstAttribute="top" secondItem="fGE-Jh-96j" secondAttribute="top" constant="8" id="n1K-IJ-6Zy"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="bPa-l8-mDF" secondAttribute="bottom" constant="8" id="xch-mf-ctZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

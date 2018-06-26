@@ -11,7 +11,7 @@ import Parse
 class HouseTableViewController: UITableViewController {
     //var room = [PFObject]()
     var houses: [House] = []
-    
+    let cellReuseIdentifier = "cell"
     var refresher: UIRefreshControl = UIRefreshControl()
     
     @IBAction func logoutUser(_ sender: Any) {
@@ -71,6 +71,13 @@ class HouseTableViewController: UITableViewController {
         cell.houseInhaberView?.text = "Rene"
         cell.houseNameView?.text = "straße"
         //cell.textLabel?.text = String(rowHouse.street) + " " + String(rowHouse.housenumber)
+        // add border and color
+        cell.backgroundColor = UIColor.white
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true
+        
         return cell
     }
     
