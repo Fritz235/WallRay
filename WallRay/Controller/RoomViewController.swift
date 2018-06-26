@@ -9,11 +9,13 @@
 import Foundation
 import UIKit
 
-class RoomViewController : UIViewController {
+class RoomViewController : UIViewController, UIScrollViewDelegate {
     
+    var navigationReference = CustomNavViewController()
     var number = 0
     var room : Room? = nil
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var StartARTop: RoundedButton!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var changelogCollectionView: UICollectionView!
@@ -22,8 +24,8 @@ class RoomViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        scrollView.backgroundColor = UIColor.clear
         topView.layer.cornerRadius = 12
-        
         topView.layer.shadowColor = UIColor.black.cgColor
         topView.layer.shadowOffset = CGSize(width: 0, height: 3)
         topView.layer.shadowOpacity = 0.7
@@ -44,6 +46,16 @@ class RoomViewController : UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (scrollView.contentOffset.y >=  -50) {
+            self.navigationController?.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "navigationBarBackground"), for: .default)
+        } else {
+            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    }
 }
 
 extension RoomViewController:UICollectionViewDelegate,UICollectionViewDataSource {
@@ -52,9 +64,9 @@ extension RoomViewController:UICollectionViewDelegate,UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = changelogCollectionViewCell()
+        let cell = changelogCollectionViewCell()
         if (collectionView == self.changelogCollectionView) {
-            var cell = changelogCollectionView.dequeueReusableCell(withReuseIdentifier: "changelogCollectionCell", for: indexPath) as! changelogCollectionViewCell
+            let cell = changelogCollectionView.dequeueReusableCell(withReuseIdentifier: "changelogCollectionCell", for: indexPath) as! changelogCollectionViewCell
             cell.cellLabelName.text = String(indexPath.row)
             cell.cellLabelDate.text = "Date"
             cell.cellLabelStatus.text = "Status"
@@ -62,7 +74,7 @@ extension RoomViewController:UICollectionViewDelegate,UICollectionViewDataSource
             cell.layer.masksToBounds = true
             return cell
         } else if (collectionView == self.statsCollectionView) {
-            var cell = statsCollectionView.dequeueReusableCell(withReuseIdentifier: "statsCollectionCell", for: indexPath) as! statsCollectionViewCell
+            let cell = statsCollectionView.dequeueReusableCell(withReuseIdentifier: "statsCollectionCell", for: indexPath) as! statsCollectionViewCell
             cell.cellLabelName.text = "Statistik"
             cell.cellLabelDate.text = "Wert"
             cell.cellLabelStatus.text = "Zweiter Wert"
