@@ -457,7 +457,7 @@
         <!--Houses-->
         <scene sceneID="a4X-c5-xKN">
             <objects>
-                <tableViewController storyboardIdentifier="HouseTableViewController" title="Räume" id="pWB-Xy-jrX" userLabel="Houses" customClass="HouseTableViewController" customModule="WallRay" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HouseTableViewController" title="Räume" id="pWB-Xy-jrX" userLabel="Houses" customClass="TableViewController" customModule="WallRay" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZmD-9J-Z63">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -502,6 +502,7 @@
                                         <constraint firstItem="JSh-3h-KmL" firstAttribute="top" secondItem="x52-nD-Tyy" secondAttribute="bottom" constant="2" id="zdx-Qb-rod"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="houseImageView" destination="oEX-4C-Efx" id="dec-kN-dLu"/>
                                     <outlet property="houseInhaberView" destination="JSh-3h-KmL" id="M2j-Pc-z5R"/>
