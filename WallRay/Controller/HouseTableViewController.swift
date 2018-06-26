@@ -26,11 +26,10 @@ class HouseTableViewController: UITableViewController {
         houses.removeAll(keepingCapacity: false)
         
         let housequery = PFQuery(className: "House")
-        //roomquery.whereKeyExists("planId")
+        
         housequery.order(byAscending: "street")
         housequery.findObjectsInBackground ( block: { (houses, error) in
             
-            //print(rooms[0]["number"])
             if error == nil {
                 for house in houses! {
                     self.houses.append(House(parseObject: house))
@@ -69,8 +68,9 @@ class HouseTableViewController: UITableViewController {
         let rowHouse = houses[indexPath.row]
         cell.tag = Int(rowHouse.id)!
         cell.houseInhaberView?.text = "Rene"
-        cell.houseNameView?.text = "straße"
-        //cell.textLabel?.text = String(rowHouse.street) + " " + String(rowHouse.housenumber)
+        cell.houseNameView?.text = rowHouse.street + " " + rowHouse.housenumber
+        cell.houseImageView.image = rowHouse.image
+        
         return cell
     }
     

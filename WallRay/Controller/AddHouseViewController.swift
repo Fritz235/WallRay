@@ -51,22 +51,19 @@ class AddHouseViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //nextId = getNextId()
-        //var nextId = ""
+        nextId = "0"
+        
         let query = PFQuery(className: "House")
         
         query.order(byDescending: "houseId")
         query.findObjectsInBackground ( block: { (rooms, error) in
-            
-            //print(rooms[0]["number"])
             if error == nil {
                 let id = rooms![0]["houseId"] as! String
+        
                 var tempId = Int(id)
                 tempId = tempId! + 1
-                //print(tempId!)
+                
                 self.nextId = String(tempId!)
-                //nextId = tempId as! String
-                //print(nextId)
             }
         })
     }
