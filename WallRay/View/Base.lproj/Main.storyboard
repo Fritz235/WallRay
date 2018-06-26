@@ -457,7 +457,7 @@
         <!--Houses-->
         <scene sceneID="a4X-c5-xKN">
             <objects>
-                <tableViewController storyboardIdentifier="HouseTableViewController" title="Räume" id="pWB-Xy-jrX" userLabel="Houses" customClass="HouseTableViewController" customModule="WallRay" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HouseTableViewController" title="Räume" id="pWB-Xy-jrX" userLabel="Houses" customClass="TableViewController" customModule="WallRay" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZmD-9J-Z63">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

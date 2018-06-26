@@ -25,7 +25,6 @@
 		DC1CCC8F20E1528A000EF887 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7320E15287000EF887 /* Plan.swift */; };
 		DC1CCC9020E1528A000EF887 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7420E15287000EF887 /* TestViewController.swift */; };
 		DC1CCC9120E1528A000EF887 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7520E15287000EF887 /* RootViewController.swift */; };
-		DC1CCC9320E1528A000EF887 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC1CCC7720E15288000EF887 /* Info.plist */; };
 		DC1CCC9420E1528A000EF887 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7820E15288000EF887 /* CustomCell.swift */; };
 		DC1CCC9520E1528A000EF887 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7920E15288000EF887 /* TableViewController.swift */; };
 		DC1CCC9620E1528A000EF887 /* changelogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7A20E15288000EF887 /* changelogCollectionViewCell.swift */; };
@@ -61,6 +60,7 @@
 		0975ABE320D42348005CC383 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		09CEE77520E24EF80096CBB0 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
 		10EA622303A68FD27AA92DE7 /* Pods_WallRay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WallRay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F0FD39820E2369D001FF430 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
 		1FE3CF0420BDAB3400A84DAD /* WallRay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WallRay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE3CF1020BDAB3400A84DAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1FE3CF1C20BDAB3500A84DAD /* WallRayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WallRayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +139,7 @@
 				1FE3CF0520BDAB3400A84DAD /* Products */,
 				248A0D36B97E80F3D34F6720 /* Pods */,
 				A141B3579D85544F03FCCF5D /* Frameworks */,
+				1FE80B5820E23CDC0091DB0D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,6 +179,14 @@
 				1FE3CF2D20BDAB3500A84DAD /* Info.plist */,
 			);
 			path = WallRayUITests;
+			sourceTree = "<group>";
+		};
+		1FE80B5820E23CDC0091DB0D /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				DC1CCCA720E15BE8000EF887 /* CustomNavViewController.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		248A0D36B97E80F3D34F6720 /* Pods */ = {
@@ -245,7 +254,7 @@
 				DC1CCC7E20E15289000EF887 /* ModelController.swift */,
 				DC1CCC8320E1528A000EF887 /* ARViewController.swift */,
 				DC1CCC6F20E15286000EF887 /* DataViewController.swift */,
-				DC1CCCA720E15BE8000EF887 /* CustomNavViewController.swift */,
+				1F0FD39820E2369D001FF430 /* HouseTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -319,7 +328,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Fritz Oppelt";
 				TargetAttributes = {
 					1FE3CF0320BDAB3400A84DAD = {
@@ -360,7 +369,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC1CCC9320E1528A000EF887 /* Info.plist in Resources */,
 				DC1CCC6A20E1527D000EF887 /* Media.xcassets in Resources */,
 				1FE3CF1120BDAB3400A84DAD /* Main.storyboard in Resources */,
 			);
@@ -506,6 +514,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F0FD39920E2369D001FF430 /* HouseTableViewCell.swift in Sources */,
 				DC1CCC9520E1528A000EF887 /* TableViewController.swift in Sources */,
 				DC1CCC9E20E1528A000EF887 /* RoomViewController.swift in Sources */,
 				DC1CCC9420E1528A000EF887 /* CustomCell.swift in Sources */,
@@ -698,14 +707,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 29N7EX858D;
+				DEVELOPMENT_TEAM = T5MU6K3NDH;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/WallRay/Controller/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Ohlsen.WallRay;
+				PRODUCT_BUNDLE_IDENTIFIER = Oppelt.WallRay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -720,14 +729,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 29N7EX858D;
+				DEVELOPMENT_TEAM = T5MU6K3NDH;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/WallRay/Controller/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Ohlsen.WallRay;
+				PRODUCT_BUNDLE_IDENTIFIER = Oppelt.WallRay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
