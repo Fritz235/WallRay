@@ -8,8 +8,6 @@
 
 import UIKit
 
-//TestTestTest
-
 class TestViewController: UIViewController {
     @IBOutlet weak var roundedShowButton: UIButton!
     

@@ -4,10 +4,30 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>WallRay.xcscheme</key>
+		<key>WallRay.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1FE3CF0320BDAB3400A84DAD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1FE3CF1B20BDAB3500A84DAD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1FE3CF2620BDAB3500A84DAD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
