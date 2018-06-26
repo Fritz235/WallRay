@@ -60,7 +60,6 @@
 		0975ABE320D42348005CC383 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		09CEE77520E24EF80096CBB0 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
 		10EA622303A68FD27AA92DE7 /* Pods_WallRay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WallRay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F0FD39820E2369D001FF430 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
 		1FE3CF0420BDAB3400A84DAD /* WallRay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WallRay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE3CF1020BDAB3400A84DAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1FE3CF1C20BDAB3500A84DAD /* WallRayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WallRayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,7 +253,6 @@
 				DC1CCC7E20E15289000EF887 /* ModelController.swift */,
 				DC1CCC8320E1528A000EF887 /* ARViewController.swift */,
 				DC1CCC6F20E15286000EF887 /* DataViewController.swift */,
-				1F0FD39820E2369D001FF430 /* HouseTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -514,7 +512,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F0FD39920E2369D001FF430 /* HouseTableViewCell.swift in Sources */,
 				DC1CCC9520E1528A000EF887 /* TableViewController.swift in Sources */,
 				DC1CCC9E20E1528A000EF887 /* RoomViewController.swift in Sources */,
 				DC1CCC9420E1528A000EF887 /* CustomCell.swift in Sources */,
