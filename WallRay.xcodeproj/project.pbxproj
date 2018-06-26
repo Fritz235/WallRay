@@ -34,6 +34,7 @@
 		DC1CCC9E20E1528A000EF887 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC8220E15289000EF887 /* RoomViewController.swift */; };
 		DC1CCC9F20E1528A000EF887 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC8320E1528A000EF887 /* ARViewController.swift */; };
 		DC1CCCA220E1528A000EF887 /* statsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC8620E1528A000EF887 /* statsCollectionViewCell.swift */; };
+		DC1CCCA820E15BE8000EF887 /* CustomNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCCA720E15BE8000EF887 /* CustomNavViewController.swift */; };
 		DC8D9BF320BEB4C40069E8AD /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9BF220BEB4C40069E8AD /* Room.swift */; };
 		DC8D9BF720BEB8410069E8AD /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9BF620BEB8410069E8AD /* Line.swift */; };
 /* End PBXBuildFile section */
@@ -94,6 +95,7 @@
 		DC1CCC8220E15289000EF887 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		DC1CCC8320E1528A000EF887 /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		DC1CCC8620E1528A000EF887 /* statsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statsCollectionViewCell.swift; sourceTree = "<group>"; };
+		DC1CCCA720E15BE8000EF887 /* CustomNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavViewController.swift; sourceTree = "<group>"; };
 		DC8D9BF220BEB4C40069E8AD /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		DC8D9BF620BEB8410069E8AD /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -240,6 +242,7 @@
 				DC1CCC7E20E15289000EF887 /* ModelController.swift */,
 				DC1CCC8320E1528A000EF887 /* ARViewController.swift */,
 				DC1CCC6F20E15286000EF887 /* DataViewController.swift */,
+				DC1CCCA720E15BE8000EF887 /* CustomNavViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				DC1CCC8B20E1528A000EF887 /* DataViewController.swift in Sources */,
 				DC1CCC9120E1528A000EF887 /* RootViewController.swift in Sources */,
 				DC1CCC9D20E1528A000EF887 /* RoundedButton.swift in Sources */,
+				DC1CCCA820E15BE8000EF887 /* CustomNavViewController.swift in Sources */,
 				DC1CCC9F20E1528A000EF887 /* ARViewController.swift in Sources */,
 				DC1CCCA220E1528A000EF887 /* statsCollectionViewCell.swift in Sources */,
 			);
@@ -697,7 +701,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Finzel.WallRay;
+				PRODUCT_BUNDLE_IDENTIFIER = Ohlsen.WallRay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -719,7 +723,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Finzel.WallRay;
+				PRODUCT_BUNDLE_IDENTIFIER = Ohlsen.WallRay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
