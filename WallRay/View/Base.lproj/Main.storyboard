@@ -91,8 +91,8 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2i-jo-KP1">
-                                                        <rect key="frame" x="16" y="54" width="27" height="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2i-jo-KP1">
+                                                        <rect key="frame" x="16" y="54" width="16" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -337,6 +337,7 @@
                     <connections>
                         <outlet property="StartARTop" destination="EwC-Ll-wJk" id="L4Q-vU-xj4"/>
                         <outlet property="changelogCollectionView" destination="EUg-ch-YdK" id="cKa-AT-JCu"/>
+                        <outlet property="labelLinien" destination="Z2i-jo-KP1" id="vve-LW-R6f"/>
                         <outlet property="scrollView" destination="UGV-q3-5PA" id="PKd-cn-vgX"/>
                         <outlet property="statsCollectionView" destination="Qdw-iv-COk" id="bXZ-oc-VTg"/>
                         <outlet property="topView" destination="yCe-aq-mDx" id="aG9-3c-HBb"/>

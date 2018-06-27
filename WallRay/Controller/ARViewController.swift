@@ -38,66 +38,26 @@ extension SCNVector3
     
     // Calculate the eulerAngle for the rotation between two points
     static func eulerAngles(vector: SCNVector3) -> SCNVector3 {
+        // Cylinder height
         let height = vector.length()
-        let lxz = sqrtf(vector.x * vector.x + vector.z * vector.z)
-        let pitchB = vector.y < 0 ? Float.pi - asinf(lxz/height) : asinf(lxz/height)
-        let pitch = vector.z == 0 ? pitchB : sign(vector.z) * pitchB
         
-        var yaw: Float = 0
+        let lxz = sqrtf(vector.x * vector.x + vector.z * vector.z)
+        let xRotationB = vector.y < 0 ? Float.pi - asinf(lxz/height) : asinf(lxz/height)
+        
+        let xRotation = vector.z == 0 ? xRotationB : sign(vector.z) * xRotationB // Pitch
+        
+        var yRotation: Float = 0 // yaw
+        
         if vector.x != 0 || vector.z != 0 {
-            let inner = vector.x / (height * sinf(pitch))
+            let inner = vector.x / (height * sinf(xRotation))
             if inner > 1 || inner < -1 {
-                yaw = Float.pi / 2
+                yRotation = Float.pi / 2
             } else {
-                yaw = asinf(inner)
+                yRotation = asinf(inner)
             }
         }
         
-        return SCNVector3(CGFloat(pitch), CGFloat(yaw), 0)
-        /*
-        let height = vector.length()
-        
-        let lxz = sqrtf(vector.x * vector.x + vector.z * vector.z)
-        
-        var pitchB : Float = 0
-        
-        if(vector.y < 0)
-        {
-            pitchB = Float.pi - asinf(lxz/height)
-        }
-        else
-        {
-            asinf(lxz/height)
-        }
-        
-        var x: Float = 0
-        
-        if(vector.z == 0)
-        {
-            x = pitchB
-        }
-        else
-        {
-            x = sign(vector.z) * pitchB
-        }
-        
-        var y: Float = 0
-        
-        if (vector.x != 0 || vector.z != 0)
-        {
-            let inner = vector.x / (height * sinf(x))
-            
-            if inner > 1 || inner < -1
-            {
-                y = Float.pi / 2
-            }
-            else
-            {
-                y = asinf(inner)
-            }
-        }
-        
-        return SCNVector3(CGFloat(x), CGFloat(y), 0)*/
+        return SCNVector3(CGFloat(xRotation), CGFloat(yRotation), 0)
     }
 }
 
@@ -163,10 +123,14 @@ class ARViewController : UIViewController, ARSCNViewDelegate {
             // ARKit is not supported. You cannot work with ARKit
         }
         
-        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        // Debug options for the AR View
+        //self.sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
+        
+        // Set config to session and sets light
         self.sceneView.session.run(configuration)
         self.sceneView.autoenablesDefaultLighting = true
         
+        // Load lines from database
         loadLines()
         
         self.title = String(self.room!.number)

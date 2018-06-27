@@ -7,13 +7,16 @@
 //
 
 import Foundation
+import Parse
 import UIKit
 
 class RoomViewController : UIViewController, UIScrollViewDelegate {
     var navigationReference = CustomNavViewController()
     var number = 0
     var room : Room? = nil
+    var changeLogEntries : [ChangelogEntry] = []
     
+    @IBOutlet weak var labelLinien: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var StartARTop: RoundedButton!
     @IBOutlet weak var topView: UIView!
@@ -37,6 +40,39 @@ class RoomViewController : UIViewController, UIScrollViewDelegate {
     }
     
     /**
+     * Executed before view loads
+     */
+    override func viewWillAppear(_ animated: Bool) {
+        var counter = 0
+        
+        // Count the amount of lines
+        let query = PFQuery(className: "Line")
+        query.whereKey("roomId", contains: self.room!.id)
+        query.findObjectsInBackground ( block: { (lines, error) in
+            if error == nil {
+                for _ in lines! {
+                    counter = counter + 1
+                }
+                
+                self.labelLinien?.text = String(counter)
+            }
+        })
+        
+        // Load the changelog entries
+        let changelogQuery = PFQuery(className: "Changelog")
+        changelogQuery.whereKey("roomId", contains: self.room!.id)
+        changelogQuery.findObjectsInBackground ( block: { (lines, error) in
+            if error == nil {
+                for line in lines! {
+                    self.changeLogEntries.append(ChangelogEntry(parseObject: line))
+                }
+                
+                self.labelLinien?.text = String(counter)
+            }
+        })
+    }
+    
+    /**
      * Executed after view loaded
      */
     override func didReceiveMemoryWarning() {
@@ -44,9 +80,10 @@ class RoomViewController : UIViewController, UIScrollViewDelegate {
     }
     
     /**
-     * Executed before view loads
+     * Executed when view disappers
      */
     override func viewWillDisappear(_ animated: Bool) {
+        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
     
