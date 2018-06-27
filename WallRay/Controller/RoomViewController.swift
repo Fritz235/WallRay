@@ -15,7 +15,6 @@ class RoomViewController : UIViewController, UIScrollViewDelegate, UICollectionV
     var number = 0
     var room : Room? = nil
     var changeLogEntries : [ChangelogEntry] = []
-    var lineLenght: Float = 0
     var stromLenght: Float = 0
     var wasserLenght: Float = 0
     @IBOutlet weak var labelLinien: UILabel!
@@ -73,7 +72,6 @@ class RoomViewController : UIViewController, UIScrollViewDelegate, UICollectionV
         })*/
         
         for line in (room?.lines)! {
-            self.lineLenght = self.lineLenght + line.length()
             counter = counter + 1
             if(line.type == 1)
             {
@@ -182,7 +180,7 @@ class RoomViewController : UIViewController, UIScrollViewDelegate, UICollectionV
             if(indexPath.row == 0)
             {
                 cell.cellLabelName.text = "Länge insgesamt"
-                cell.cellLabelDate.text = String(lineLenght)
+                cell.cellLabelDate.text = String(stromLenght + wasserLenght)
             }
             else if(indexPath.row == 1)
             {

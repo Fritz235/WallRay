@@ -72,7 +72,7 @@ extension SCNVector3
         
         if(vector.x != 0 || vector.z != 0)
         {
-            let temp = vector.x / (height * sinf(lengthXZ))
+            let temp = vector.x / (height * sinf(tempXRotation))
             
             if(temp > 1 || temp < -1)
             {
