@@ -19,7 +19,8 @@ class AddRoomViewController: UIViewController {
      */
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
+        textFieldNumber.setLeftPaddingPoints(10)
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
     
