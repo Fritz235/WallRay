@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092BC1E320E4206500050905 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092BC1E220E4206500050905 /* Launch Screen.storyboard */; };
 		0975ABE420D42348005CC383 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975ABE320D42348005CC383 /* House.swift */; };
 		09CEE77620E24EF80096CBB0 /* HouseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CEE77520E24EF80096CBB0 /* HouseTableViewCell.swift */; };
 		1FE3CF1120BDAB3400A84DAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FE3CF0F20BDAB3400A84DAD /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		092BC1E220E4206500050905 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0975ABE320D42348005CC383 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		09CEE77520E24EF80096CBB0 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
 		10EA622303A68FD27AA92DE7 /* Pods_WallRay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WallRay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +225,7 @@
 				DC1CCC8120E15289000EF887 /* RoundedButton.swift */,
 				1FE3CF0F20BDAB3400A84DAD /* Main.storyboard */,
 				DC1CCC6920E1527D000EF887 /* Media.xcassets */,
+				092BC1E220E4206500050905 /* Launch Screen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				092BC1E320E4206500050905 /* Launch Screen.storyboard in Resources */,
 				DC1CCC6A20E1527D000EF887 /* Media.xcassets in Resources */,
 				1FE3CF1120BDAB3400A84DAD /* Main.storyboard in Resources */,
 			);
