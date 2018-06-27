@@ -19,16 +19,12 @@
 		DC1CCC8720E1528A000EF887 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC6B20E15286000EF887 /* AppDelegate.swift */; };
 		DC1CCC8920E1528A000EF887 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC6D20E15286000EF887 /* Point.swift */; };
 		DC1CCC8A20E1528A000EF887 /* HouseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC6E20E15286000EF887 /* HouseTableViewController.swift */; };
-		DC1CCC8B20E1528A000EF887 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC6F20E15286000EF887 /* DataViewController.swift */; };
 		DC1CCC8C20E1528A000EF887 /* AddHouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7020E15287000EF887 /* AddHouseViewController.swift */; };
 		DC1CCC8D20E1528A000EF887 /* ChangelogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7120E15287000EF887 /* ChangelogEntry.swift */; };
-		DC1CCC9020E1528A000EF887 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7420E15287000EF887 /* TestViewController.swift */; };
-		DC1CCC9120E1528A000EF887 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7520E15287000EF887 /* RootViewController.swift */; };
 		DC1CCC9420E1528A000EF887 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7820E15288000EF887 /* CustomCell.swift */; };
 		DC1CCC9520E1528A000EF887 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7920E15288000EF887 /* TableViewController.swift */; };
 		DC1CCC9620E1528A000EF887 /* changelogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7A20E15288000EF887 /* changelogCollectionViewCell.swift */; };
 		DC1CCC9820E1528A000EF887 /* AddRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7C20E15288000EF887 /* AddRoomViewController.swift */; };
-		DC1CCC9A20E1528A000EF887 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7E20E15289000EF887 /* ModelController.swift */; };
 		DC1CCC9D20E1528A000EF887 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC8120E15289000EF887 /* RoundedButton.swift */; };
 		DC1CCC9E20E1528A000EF887 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC8220E15289000EF887 /* RoomViewController.swift */; };
 		DC1CCC9F20E1528A000EF887 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC8320E1528A000EF887 /* ARViewController.swift */; };
@@ -79,17 +75,13 @@
 		DC1CCC6B20E15286000EF887 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC1CCC6D20E15286000EF887 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		DC1CCC6E20E15286000EF887 /* HouseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseTableViewController.swift; sourceTree = "<group>"; };
-		DC1CCC6F20E15286000EF887 /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		DC1CCC7020E15287000EF887 /* AddHouseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddHouseViewController.swift; sourceTree = "<group>"; };
 		DC1CCC7120E15287000EF887 /* ChangelogEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangelogEntry.swift; sourceTree = "<group>"; };
-		DC1CCC7420E15287000EF887 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		DC1CCC7520E15287000EF887 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		DC1CCC7720E15288000EF887 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC1CCC7820E15288000EF887 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		DC1CCC7920E15288000EF887 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		DC1CCC7A20E15288000EF887 /* changelogCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = changelogCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC1CCC7C20E15288000EF887 /* AddRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRoomViewController.swift; sourceTree = "<group>"; };
-		DC1CCC7E20E15289000EF887 /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		DC1CCC8120E15289000EF887 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		DC1CCC8220E15289000EF887 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		DC1CCC8320E1528A000EF887 /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
@@ -153,9 +145,9 @@
 		1FE3CF0620BDAB3400A84DAD /* WallRay */ = {
 			isa = PBXGroup;
 			children = (
-				DC1CCCA520E152A2000EF887 /* Controller */,
-				DC1CCCA420E1529E000EF887 /* View */,
 				DC1CCCA320E15298000EF887 /* Model */,
+				DC1CCCA420E1529E000EF887 /* View */,
+				DC1CCCA520E152A2000EF887 /* Controller */,
 			);
 			path = WallRay;
 			sourceTree = "<group>";
@@ -241,15 +233,11 @@
 				DC1CCC7720E15288000EF887 /* Info.plist */,
 				DC1CCC6B20E15286000EF887 /* AppDelegate.swift */,
 				DC1CCC6E20E15286000EF887 /* HouseTableViewController.swift */,
-				DC1CCC7520E15287000EF887 /* RootViewController.swift */,
 				DC1CCC7920E15288000EF887 /* TableViewController.swift */,
-				DC1CCC7420E15287000EF887 /* TestViewController.swift */,
 				DC1CCC7020E15287000EF887 /* AddHouseViewController.swift */,
 				DC1CCC7C20E15288000EF887 /* AddRoomViewController.swift */,
 				DC1CCC8220E15289000EF887 /* RoomViewController.swift */,
-				DC1CCC7E20E15289000EF887 /* ModelController.swift */,
 				DC1CCC8320E1528A000EF887 /* ARViewController.swift */,
-				DC1CCC6F20E15286000EF887 /* DataViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -518,15 +506,11 @@
 				DC1CCC8920E1528A000EF887 /* Point.swift in Sources */,
 				DC1CCC9620E1528A000EF887 /* changelogCollectionViewCell.swift in Sources */,
 				DC1CCC8D20E1528A000EF887 /* ChangelogEntry.swift in Sources */,
-				DC1CCC9A20E1528A000EF887 /* ModelController.swift in Sources */,
 				DC1CCC8C20E1528A000EF887 /* AddHouseViewController.swift in Sources */,
-				DC1CCC9020E1528A000EF887 /* TestViewController.swift in Sources */,
 				DC8D9BF320BEB4C40069E8AD /* Room.swift in Sources */,
 				DC1CCC8720E1528A000EF887 /* AppDelegate.swift in Sources */,
 				DC1CCC9820E1528A000EF887 /* AddRoomViewController.swift in Sources */,
 				DC8D9BF720BEB8410069E8AD /* Line.swift in Sources */,
-				DC1CCC8B20E1528A000EF887 /* DataViewController.swift in Sources */,
-				DC1CCC9120E1528A000EF887 /* RootViewController.swift in Sources */,
 				DC1CCC9D20E1528A000EF887 /* RoundedButton.swift in Sources */,
 				DC1CCCA820E15BE8000EF887 /* CustomNavViewController.swift in Sources */,
 				DC1CCC9F20E1528A000EF887 /* ARViewController.swift in Sources */,
