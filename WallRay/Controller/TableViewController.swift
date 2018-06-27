@@ -62,14 +62,27 @@ class TableViewController: UITableViewController {
         roomquery.findObjectsInBackground ( block: { (rooms, error) in
             if error == nil {
                 for room in rooms! {
+                    var changelogEntries: [ChangelogEntry] = []
                     // Store room object in array
-                    self.rooms.append(Room(parseObject: room ))
+                    let query = PFQuery(className: "Changelog")
+                    query.whereKey("roomId", contains: room["roomId"] as? String)
+                    query.findObjectsInBackground ( block: { (entries, error) in
+                        if error == nil {
+                            for entry in entries! {
+                                changelogEntries.append(ChangelogEntry(parseObject: entry))
+                            }
+                        }
+                        self.rooms.append(Room(parseObject: room, changelogEntries: changelogEntries))
+                        
+                        // Reload the table to show data
+                        self.tableView.reloadData()
+                    })
+                    
+                    
                 }
                 
             }
             
-            // Reload the table to show data
-            self.tableView.reloadData()
         })
     }
     

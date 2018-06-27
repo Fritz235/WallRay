@@ -77,7 +77,6 @@ extension SCNNode {
         // Create a node from the cylinder
         let node = SCNNode(geometry: cylinder)
         
-        
         // Place cylinder in between both points
         node.position = (to + from) / 2
         
@@ -159,7 +158,6 @@ class ARViewController : UIViewController, ARSCNViewDelegate {
             // Add node to the scene
             sceneView.scene.rootNode.addChildNode(node)
         }
-        
     }
     
     /**

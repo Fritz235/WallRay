@@ -10,7 +10,7 @@ import Foundation
 import Parse
 import UIKit
 
-class RoomViewController : UIViewController, UIScrollViewDelegate {
+class RoomViewController : UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource  {
     var navigationReference = CustomNavViewController()
     var number = 0
     var room : Room? = nil
@@ -58,18 +58,7 @@ class RoomViewController : UIViewController, UIScrollViewDelegate {
             }
         })
         
-        // Load the changelog entries
-        let changelogQuery = PFQuery(className: "Changelog")
-        changelogQuery.whereKey("roomId", contains: self.room!.id)
-        changelogQuery.findObjectsInBackground ( block: { (lines, error) in
-            if error == nil {
-                for line in lines! {
-                    self.changeLogEntries.append(ChangelogEntry(parseObject: line))
-                }
-                
-                self.labelLinien?.text = String(counter)
-            }
-        })
+        
     }
     
     /**
@@ -112,20 +101,22 @@ class RoomViewController : UIViewController, UIScrollViewDelegate {
         // Show view
         self.navigationController?.pushViewController(vc, animated: true)
     }
-}
-
-extension RoomViewController:UICollectionViewDelegate,UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return (room?.changelogEntries.count)!
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = changelogCollectionViewCell()
         if (collectionView == self.changelogCollectionView) {
             let cell = changelogCollectionView.dequeueReusableCell(withReuseIdentifier: "changelogCollectionCell", for: indexPath) as! changelogCollectionViewCell
-            cell.cellLabelName.text = String(indexPath.row)
-            cell.cellLabelDate.text = "Date"
-            cell.cellLabelStatus.text = "Status"
+            
+            let rowEntry = room?.changelogEntries[indexPath.row]
+            
+            cell.cellLabelName.text = rowEntry?.username
+            
+            cell.cellLabelDate.text = "21.06.2018"
+            cell.cellLabelStatus.text = rowEntry?.type
             cell.layer.cornerRadius = 15
             cell.layer.masksToBounds = true
             return cell
@@ -141,3 +132,4 @@ extension RoomViewController:UICollectionViewDelegate,UICollectionViewDataSource
         return cell
     }
 }
+

@@ -13,14 +13,16 @@ class Room {
     var id: String
     var number: Int
     var houseId: String
+    var changelogEntries: [ChangelogEntry] = []
     
-    init(id: String, number: Int, houseId: String) {
+    init(id: String, number: Int, houseId: String, changelogEntries: [ChangelogEntry]) {
         self.id = id;
         self.number = number
         self.houseId = houseId
+        self.changelogEntries = changelogEntries
     }
     
-    convenience init(parseObject: PFObject) {
-        self.init(id: parseObject["roomId"] as! String, number: parseObject["number"] as! Int, houseId: parseObject["houseId"] as! String)
+    convenience init(parseObject: PFObject, changelogEntries: [ChangelogEntry]) {
+        self.init(id: parseObject["roomId"] as! String, number: parseObject["number"] as! Int, houseId: parseObject["houseId"] as! String, changelogEntries: changelogEntries)
     }
 }
