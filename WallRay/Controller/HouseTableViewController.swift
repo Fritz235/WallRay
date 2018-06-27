@@ -80,6 +80,7 @@ class HouseTableViewController: UITableViewController {
         // Fill the textfields of the cell
         cell.houseInhaberView?.text = rowHouse.owner
         cell.houseNameView?.text = rowHouse.street + " " + String(rowHouse.housenumber)
+        cell.houseImageView?.image = UIImage(named: "haus.png")
         
         // Add border and color
         cell.backgroundColor = UIColor.white
