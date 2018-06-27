@@ -25,6 +25,7 @@ class HouseTableViewController: UITableViewController {
      */
     override func viewWillAppear(_ animated: Bool) {
         // Load data and update table before view loads
+        //self.tableView.rowHeight = 100
         updateTable()
     }
     
@@ -35,6 +36,10 @@ class HouseTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 100.0
+    }
     /**
      * Loads data from the database and stores them in an array to fill the TableView
      */

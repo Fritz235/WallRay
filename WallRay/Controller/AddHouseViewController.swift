@@ -12,7 +12,7 @@ class AddHouseViewController: UIViewController {
 
     @IBOutlet weak var textFieldStreet: UITextField!
     @IBOutlet weak var textFieldHousenumber: UITextField!
-    
+    @IBOutlet weak var textFieldOwner: UITextField!
     var nextId = "0"
     
     /**
@@ -66,6 +66,7 @@ class AddHouseViewController: UIViewController {
         house["houseId"] = nextId
         house["street"] = textFieldStreet?.text
         house["housenumber"] = textFieldHousenumber?.text
+        house["owner"] = textFieldOwner?.text
         house.saveInBackground {
             (success: Bool, error: Error?) in
             if (success) {

@@ -41,45 +41,50 @@ extension SCNVector3
         // Cylinder height
         let height = vector.length()
         
-        let lxz = sqrtf(vector.x * vector.x + vector.z * vector.z)
+        // Length of X and Z
+        let lengthXZ = sqrtf(vector.x * vector.x + vector.z * vector.z)
        
-        var xRotationB: Float = 0 // pitchB
-        var xRotation: Float = 0 // pitch
+        var tempXRotation: Float = 0
+        var xRotation: Float = 0
         
         if(vector.y < 0)
         {
-            xRotationB = Float.pi - asinf(lxz/height)
+            // PI - asin from lengthXZ/height
+            tempXRotation = Float.pi - asinf(lengthXZ/height)
         }
         else
         {
-            xRotationB = asinf(lxz/height)
+            // asin from lengthXZ/height
+            tempXRotation = asinf(lengthXZ/height)
         }
         
-        if(vector.z == 0)
+        // If z is below 0 multiply with -1
+        if(vector.z >= 0)
         {
-            xRotation = xRotationB
+            xRotation = tempXRotation
         }
         else
         {
-            xRotation = sign(vector.z) * xRotationB
+            xRotation = -1 * tempXRotation
         }
         
-        var yRotation: Float = 0 // yaw
+        var yRotation: Float = 0
         
-        if vector.x != 0 || vector.z != 0
+        if(vector.x != 0 || vector.z != 0)
         {
-            let inner = vector.x / (height * sinf(xRotation))
+            let temp = vector.x / (height * sinf(lengthXZ))
             
-            if inner > 1 || inner < -1
+            if(temp > 1 || temp < -1)
             {
                 yRotation = Float.pi / 2
             }
             else
             {
-                yRotation = asinf(inner)
+                yRotation = asinf(temp)
             }
         }
         
+        // Return the x and y rotations
         return SCNVector3(CGFloat(xRotation), CGFloat(yRotation), 0)
     }
 }
