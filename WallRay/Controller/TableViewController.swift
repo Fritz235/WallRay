@@ -63,6 +63,7 @@ class TableViewController: UITableViewController {
             if error == nil {
                 for room in rooms! {
                     var changelogEntries: [ChangelogEntry] = []
+                    var allLines: [Line] = []
                     // Store room object in array
                     let query = PFQuery(className: "Changelog")
                     query.whereKey("roomId", contains: room["roomId"] as? String)
@@ -72,7 +73,17 @@ class TableViewController: UITableViewController {
                                 changelogEntries.append(ChangelogEntry(parseObject: entry))
                             }
                         }
-                        self.rooms.append(Room(parseObject: room, changelogEntries: changelogEntries))
+                    })
+                    let linequery = PFQuery(className: "Line")
+                    linequery.whereKey("roomId", contains: room["roomId"] as? String)
+                    linequery.findObjectsInBackground ( block: { (lines, error) in
+                        if error == nil {
+                            for line in lines! {
+                                allLines.append(Line(start: Point(x: line["StartX"] as! Float, y: line["StartY"] as! Float, z: line["StartZ"] as! Float), end: Point(x: line["EndX"] as! Float, y: line["EndY"] as! Float, z: line["EndZ"] as! Float), color: line["Color"] as!  String))
+                            }
+                        }
+                        
+                        self.rooms.append(Room(parseObject: room, changelogEntries: changelogEntries, lines: allLines))
                         
                         // Reload the table to show data
                         self.tableView.reloadData()

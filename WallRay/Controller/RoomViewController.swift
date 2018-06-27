@@ -15,7 +15,9 @@ class RoomViewController : UIViewController, UIScrollViewDelegate, UICollectionV
     var number = 0
     var room : Room? = nil
     var changeLogEntries : [ChangelogEntry] = []
-    
+    var lineLenght: Float = 0
+    var stromLenght: Float = 0
+    var wasserLenght: Float = 0
     @IBOutlet weak var labelLinien: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var StartARTop: RoundedButton!
@@ -44,21 +46,46 @@ class RoomViewController : UIViewController, UIScrollViewDelegate, UICollectionV
      */
     override func viewWillAppear(_ animated: Bool) {
         var counter = 0
-        
         // Count the amount of lines
-        let query = PFQuery(className: "Line")
+        /*let query = PFQuery(className: "Line")
         query.whereKey("roomId", contains: self.room!.id)
         query.findObjectsInBackground ( block: { (lines, error) in
             if error == nil {
-                for _ in lines! {
+                for line in lines! {
                     counter = counter + 1
+                    let color = line["Color"] as! String
+                    let newline = Line(start: Point(x: line["StartX"] as! Float, y: line["StartY"] as! Float, z: line["StartZ"] as! Float), end: Point(x: line["EndX"] as! Float, y: line["EndY"] as! Float, z: line["EndZ"] as! Float), color: color)
+                    // Add the line length from every line
+                    self.lineLenght = self.lineLenght + newline.length()
+                    
+                    if(color == "Red")
+                    {
+                        self.stromLenght = self.stromLenght + newline.length()
+                    }
+                    else if(color == "Blue")
+                    {
+                        self.wasserLenght = self.wasserLenght + newline.length()
+                    }
                 }
-                
-                self.labelLinien?.text = String(counter)
             }
-        })
+            
+            self.labelLinien?.text = String(counter)
+        })*/
         
+        for line in (room?.lines)! {
+            self.lineLenght = self.lineLenght + line.length()
+            counter = counter + 1
+            if(line.type == 1)
+            {
+                self.stromLenght = self.stromLenght + line.length()
+            }
+            else if(line.type == 2)
+            {
+                self.wasserLenght = self.wasserLenght + line.length()
+            }
+        }
         
+        self.labelLinien?.text = String(counter)
     }
     
     /**
@@ -102,10 +129,21 @@ class RoomViewController : UIViewController, UIScrollViewDelegate, UICollectionV
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    /**
+     * Returns the amount of cells
+     */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (room?.changelogEntries.count)!
+        if (collectionView == self.changelogCollectionView) {
+            return (room?.changelogEntries.count)!
+        } else if (collectionView == self.statsCollectionView) {
+            return 3
+        }
+        return 0
     }
     
+    /**
+     * Creates the cells in the CollectionView
+     */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = changelogCollectionViewCell()
         if (collectionView == self.changelogCollectionView) {
@@ -122,9 +160,23 @@ class RoomViewController : UIViewController, UIScrollViewDelegate, UICollectionV
             return cell
         } else if (collectionView == self.statsCollectionView) {
             let cell = statsCollectionView.dequeueReusableCell(withReuseIdentifier: "statsCollectionCell", for: indexPath) as! statsCollectionViewCell
-            cell.cellLabelName.text = "Statistik"
-            cell.cellLabelDate.text = "Wert"
-            cell.cellLabelStatus.text = "Zweiter Wert"
+            
+            if(indexPath.row == 0)
+            {
+                cell.cellLabelName.text = "Länge insgesamt"
+                cell.cellLabelDate.text = String(lineLenght)
+            }
+            else if(indexPath.row == 1)
+            {
+                cell.cellLabelName.text = "Länge Stromkabel"
+                cell.cellLabelDate.text = String(stromLenght)
+            }
+            else if(indexPath.row == 2)
+            {
+                cell.cellLabelName.text = "Länge Wasserleitungen"
+                cell.cellLabelDate.text = String(wasserLenght)
+            }
+            
             cell.layer.cornerRadius = 15
             cell.layer.masksToBounds = true
             return cell

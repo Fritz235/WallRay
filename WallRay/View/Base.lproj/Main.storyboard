@@ -359,12 +359,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yez-mP-7Se">
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yez-mP-7Se">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </arscnView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Yez-mP-7Se" firstAttribute="leading" secondItem="AZ2-ND-fh8" secondAttribute="leading" id="TNH-GZ-e3m"/>
+                            <constraint firstAttribute="trailing" secondItem="Yez-mP-7Se" secondAttribute="trailing" id="VZk-Aa-gOn"/>
+                            <constraint firstItem="Yez-mP-7Se" firstAttribute="top" secondItem="Pet-Er-wlw" secondAttribute="bottom" id="aL8-Kp-9T7"/>
+                            <constraint firstItem="VjU-Bp-ddA" firstAttribute="top" secondItem="Yez-mP-7Se" secondAttribute="bottom" id="iat-Ej-FzU"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="sceneView" destination="Yez-mP-7Se" id="GTv-7t-ntw"/>
