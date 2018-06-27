@@ -130,7 +130,7 @@ class ARViewController : UIViewController, ARSCNViewDelegate {
         self.sceneView.autoenablesDefaultLighting = true
         
         // Load lines from database
-        loadLines()
+        //loadLines()
         
         self.title = String(self.room!.number)
     }
@@ -147,13 +147,13 @@ class ARViewController : UIViewController, ARSCNViewDelegate {
      */
     func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
         // Render every line in the array
-        for line in lines
+        for line in (self.room?.lines)!
         {
             // Create a line
-            let node = SCNNode.line(from: SCNVector3(x: (line?.start.x)!, y: (line?.start.y)!, z: (line?.start.z)!), to: SCNVector3(x: (line?.end.x)!, y: (line?.end.y)!, z: (line?.end.z)!))
+            let node = SCNNode.line(from: SCNVector3(x: (line.start.x), y: (line.start.y), z: (line.start.z)), to: SCNVector3(x: (line.end.x), y: (line.end.y), z: (line.end.z)))
             
             // Set the color
-            node.geometry?.firstMaterial?.diffuse.contents = line?.color
+            node.geometry?.firstMaterial?.diffuse.contents = line.color
             
             // Add node to the scene
             sceneView.scene.rootNode.addChildNode(node)
