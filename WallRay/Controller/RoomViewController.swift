@@ -133,8 +133,16 @@ class RoomViewController : UIViewController, UIScrollViewDelegate, UICollectionV
      * Returns the amount of cells
      */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if (collectionView == self.changelogCollectionView) {
-            return (room?.changelogEntries.count)!
+        if (collectionView == self.changelogCollectionView)
+        {
+            if((room?.changelogEntries.count)! > 0)
+            {
+                return (room?.changelogEntries.count)!
+            }
+            else
+            {
+                return 1
+            }
         } else if (collectionView == self.statsCollectionView) {
             return 3
         }
@@ -149,12 +157,22 @@ class RoomViewController : UIViewController, UIScrollViewDelegate, UICollectionV
         if (collectionView == self.changelogCollectionView) {
             let cell = changelogCollectionView.dequeueReusableCell(withReuseIdentifier: "changelogCollectionCell", for: indexPath) as! changelogCollectionViewCell
             
-            let rowEntry = room?.changelogEntries[indexPath.row]
+            if((room?.changelogEntries.count)! > 0)
+            {
+                let rowEntry = room?.changelogEntries[indexPath.row]
             
-            cell.cellLabelName.text = rowEntry?.username
-            
-            cell.cellLabelDate.text = "21.06.2018"
-            cell.cellLabelStatus.text = rowEntry?.type
+                cell.cellLabelName.text = rowEntry?.username
+                
+                cell.cellLabelDate.text = "21.06.2018"
+                cell.cellLabelStatus.text = rowEntry?.type
+            }
+            else
+            {
+                cell.cellLabelName.text = "No changelog entries"
+                
+                cell.cellLabelDate.text = ""
+                cell.cellLabelStatus.text = ""
+            }
             cell.layer.cornerRadius = 15
             cell.layer.masksToBounds = true
             return cell
