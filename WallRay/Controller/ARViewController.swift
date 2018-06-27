@@ -42,17 +42,40 @@ extension SCNVector3
         let height = vector.length()
         
         let lxz = sqrtf(vector.x * vector.x + vector.z * vector.z)
-        let xRotationB = vector.y < 0 ? Float.pi - asinf(lxz/height) : asinf(lxz/height)
+       
+        var xRotationB: Float = 0 // pitchB
+        var xRotation: Float = 0 // pitch
         
-        let xRotation = vector.z == 0 ? xRotationB : sign(vector.z) * xRotationB // Pitch
+        if(vector.y < 0)
+        {
+            xRotationB = Float.pi - asinf(lxz/height)
+        }
+        else
+        {
+            xRotationB = asinf(lxz/height)
+        }
+        
+        if(vector.z == 0)
+        {
+            xRotation = xRotationB
+        }
+        else
+        {
+            xRotation = sign(vector.z) * xRotationB
+        }
         
         var yRotation: Float = 0 // yaw
         
-        if vector.x != 0 || vector.z != 0 {
+        if vector.x != 0 || vector.z != 0
+        {
             let inner = vector.x / (height * sinf(xRotation))
-            if inner > 1 || inner < -1 {
+            
+            if inner > 1 || inner < -1
+            {
                 yRotation = Float.pi / 2
-            } else {
+            }
+            else
+            {
                 yRotation = asinf(inner)
             }
         }
