@@ -9,44 +9,24 @@
 import UIKit
 import Parse
 class AddRoomViewController: UIViewController {
-    
     var houseId = ""
-    var nextId = ""
+    var nextId = "0"
     
     @IBOutlet weak var textFieldNumber: UITextField!
     
-    @IBAction func logoutUser(_ sender: Any) {
-        PFUser.logOut()
-        
-        performSegue(withIdentifier: "logoutSegue", sender: self)
-        
-    }
-    
-    @IBAction func buttonClick(_ sender: UIButton) {
-        let room = PFObject(className:"Raum")
-        room["roomId"] = nextId
-        room["number"] = Int((textFieldNumber?.text)!)
-        room["houseId"] = houseId
-        room.saveInBackground {
-            (success: Bool, error: Error?) in
-            if (success) {
-                self.navigationController?.popViewController(animated: true)
-            } else {
-                print("Error")
-            }
-        }
-    }
-    
+    /**
+     * Executed after the view loaded
+     */
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
     
+    /**
+     * Executed before the view loads
+     */
     override func viewWillAppear(_ animated: Bool) {
-        nextId = "0"
-        
         let query = PFQuery(className: "Raum")
         
         query.order(byDescending: "roomId")
@@ -62,13 +42,36 @@ class AddRoomViewController: UIViewController {
         })
     }
     
+    /**
+     * Executed when the app receives a memory warning
+     */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    /**
+     * Button click event to add a room to the database
+     */
+    @IBAction func buttonClick(_ sender: UIButton) {
+        let room = PFObject(className:"Raum")
+        room["roomId"] = nextId
+        room["number"] = Int((textFieldNumber?.text)!)
+        room["houseId"] = houseId
+        room.saveInBackground {
+            (success: Bool, error: Error?) in
+            if (success) {
+                // If succussful return to the listview
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                print("Error")
+            }
+        }
+    }
+    
+    /**
+     * Dismisses the keyboard
+     */
     func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
 }

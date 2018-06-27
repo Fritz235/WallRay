@@ -9,90 +9,115 @@
 import UIKit
 import Parse
 class TableViewController: UITableViewController {
-    //var room = [PFObject]()
     var rooms: [Room] = []
     var houseId = ""
-    var refresher: UIRefreshControl = UIRefreshControl()
     
-    @IBAction func logoutUser(_ sender: Any) {
-        
-        PFUser.logOut()
-        
-        performSegue(withIdentifier: "logoutSegue", sender: self)
-        
+    /**
+     * Executed after view loaded
+     */
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
+    /**
+     * Executed before view loads
+     */
+    override func viewWillAppear(_ animated: Bool) {
+        updateTable()
+    }
     
+    /**
+     * Executed when the app receives a memory warning
+     */
+    override func didReceiveMemoryWarning() {
+     super.didReceiveMemoryWarning()
+    }
+    
+    /**
+     * Button click event to add a room
+     */
     @IBAction func ButtonAddClick(_ sender: UIBarButtonItem) {
+        // Get AddRoomView from storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "AddRoomViewController") as! AddRoomViewController
         
+        // Pass the houseId
         vc.houseId = self.houseId
+        
+        // Show next view
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    /**
+     * Gets rooms from database and updates table
+     */
     func updateTable() {
+        // Clear room array
         rooms.removeAll(keepingCapacity: false)
         
+        // Get room with a specific houseId from the database in an ascending order
         let roomquery = PFQuery(className: "Raum")
         roomquery.whereKey("houseId", contains: houseId)
-        //roomquery.whereKeyExists("planId")
         roomquery.order(byAscending: "number")
         roomquery.findObjectsInBackground ( block: { (rooms, error) in
-            
-            //print(rooms[0]["number"])
             if error == nil {
                 for room in rooms! {
+                    // Store room object in array
                     self.rooms.append(Room(parseObject: room ))
                 }
-              
+                
             }
             
+            // Reload the table to show data
             self.tableView.reloadData()
         })
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        updateTable()
-    }
-    override func didReceiveMemoryWarning() {
-     super.didReceiveMemoryWarning()
-     // Dispose of any resources that can be recreated.
-     }
-     
-     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    /**
+     * Returns the number of cells in the tableview
+     */
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rooms.count
-     }
-     
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-         let rowRoom = rooms[indexPath.row]
-         cell.textLabel?.text = String(rowRoom.number)
-         return cell
-     }
+    }
     
+    /**
+     * Adds cells to the tabelview
+     */
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        // Get room object
+        let rowRoom = rooms[indexPath.row]
+        
+        // Write roomnumber in the textfield
+        cell.textLabel?.text = String(rowRoom.number)
+        return cell
+    }
+    
+    /**
+     * Touch event on a cell
+     */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indexPath = tableView.indexPathForSelectedRow
-        
-        //getting the current cell from the index path
-        let currentCell = tableView.cellForRow(at: indexPath!)! as UITableViewCell
-        
+    
+        // Get the next view from the storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "RoomViewController") as! RoomViewController
         
-        //vc.number = Int((currentCell.textLabel?.text)!)!
+        // Pass the room object to the next view
         vc.room = rooms[(indexPath?.row)!]
+        
+        // Show next view
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    /**
+     * Swipe event on a cell
+     */
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        // If delete button is touched
         if editingStyle == .delete {
+            // Deletes room with the cells roomId from the database
             let query = PFQuery(className: "Raum")
             query.whereKey("number", equalTo: rooms[indexPath.row].number)
             query.findObjectsInBackground ( block: { (rooms, error) in
@@ -103,6 +128,7 @@ class TableViewController: UITableViewController {
                 }
             })
             
+            // Delete all lines connected to the room
             let linequery = PFQuery(className: "Line")
             linequery.whereKey("roomId", equalTo: rooms[indexPath.row].number)
             linequery.findObjectsInBackground ( block: { (lines, error) in
@@ -113,10 +139,9 @@ class TableViewController: UITableViewController {
                 }
             })
             
+            // Remove room from the array and tableview
             rooms.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
 }

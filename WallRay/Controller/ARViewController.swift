@@ -10,6 +10,7 @@ import Foundation
 import ARKit
 import Parse
 
+// Vector calculations
 // https://github.com/shu223/ARKit-Sampler/blob/master/common/Common.swift
 func / (vector: SCNVector3, scalar: Float) -> SCNVector3 {
     return SCNVector3Make(vector.x / scalar, vector.y / scalar, vector.z / scalar)
@@ -27,6 +28,7 @@ func * (left: SCNVector3, right: SCNVector3) -> SCNVector3 {
     return SCNVector3Make(left.x * right.x, left.y * right.y, left.z * right.z)
 }
 
+// Extensions for the SCNVector3 class
 extension SCNVector3
 {
     // Get vector length
@@ -34,6 +36,7 @@ extension SCNVector3
         return sqrtf(x*x + y*y + z*z)
     }
     
+    // Calculate the eulerAngle for the rotation between two points
     static func eulerAngles(vector: SCNVector3) -> SCNVector3 {
         let height = vector.length()
         let lxz = sqrtf(vector.x * vector.x + vector.z * vector.z)
@@ -49,6 +52,7 @@ extension SCNVector3
                 yaw = asinf(inner)
             }
         }
+        
         return SCNVector3(CGFloat(pitch), CGFloat(yaw), 0)
         /*
         let height = vector.length()
@@ -97,6 +101,7 @@ extension SCNVector3
     }
 }
 
+// Extensions for SCNNode
 extension SCNNode {
     static func line(from: SCNVector3, to: SCNVector3) -> SCNNode {
         // Get direction vector
@@ -109,6 +114,7 @@ extension SCNNode {
         let cylinder = SCNCylinder(radius: 0.01, height: CGFloat(distance))
         cylinder.radialSegmentCount = 4
         
+        // Create a node from the cylinder
         let node = SCNNode(geometry: cylinder)
         
         
@@ -123,13 +129,14 @@ extension SCNNode {
 }
 
 class ARViewController : UIViewController, ARSCNViewDelegate {
-    
     @IBOutlet weak var sceneView: ARSCNView!
     let configuration = ARWorldTrackingConfiguration()
     var lines: [Line?] = []
-    
     var room : Room? = nil
-     
+    
+    /**
+     * Executed after view loaded
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -142,9 +149,10 @@ class ARViewController : UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
     }
-    
-    
-    
+
+    /**
+     * Executed before view loads
+     */
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -163,32 +171,45 @@ class ARViewController : UIViewController, ARSCNViewDelegate {
         
         self.title = String(self.room!.number)
     }
+    
+    /**
+     * Executed when app receives memory warning
+     */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    /**
+     * Renders 1 frame for the Scene
+     */
     func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
-        //let line = SCNNode.line(from: SCNVector3(x: 0, y: 0, z: 0), to: SCNVector3(x: -4, y: 1, z: 2))
-
+        // Render every line in the array
         for line in lines
         {
+            // Create a line
             let node = SCNNode.line(from: SCNVector3(x: (line?.start.x)!, y: (line?.start.y)!, z: (line?.start.z)!), to: SCNVector3(x: (line?.end.x)!, y: (line?.end.y)!, z: (line?.end.z)!))
+            
+            // Set the color
             node.geometry?.firstMaterial?.diffuse.contents = line?.color
+            
+            // Add node to the scene
             sceneView.scene.rootNode.addChildNode(node)
         }
         
     }
     
+    /**
+     * Loads line for the room from the database
+     */
     func loadLines()
     {
+        // Load lines with roomId as key
         let linequery = PFQuery(className: "Line")
-        
         linequery.whereKey("roomId", contains: self.room!.id)
-        //linequery.whereKey("roomnumber", contains: String(self.room!.number))
         linequery.findObjectsInBackground ( block: { (lines, error) in
             if error == nil {
                 for line in lines! {
+                    // Add line to the array
                     self.lines.append(Line(start: Point(x: line["StartX"] as! Float, y: line["StartY"] as! Float, z: line["StartZ"] as! Float), end: Point(x: line["EndX"] as! Float, y: line["EndY"] as! Float, z: line["EndZ"] as! Float), color: line["Color"] as! String))
                 }
             }

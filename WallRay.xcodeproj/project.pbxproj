@@ -22,7 +22,6 @@
 		DC1CCC8B20E1528A000EF887 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC6F20E15286000EF887 /* DataViewController.swift */; };
 		DC1CCC8C20E1528A000EF887 /* AddHouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7020E15287000EF887 /* AddHouseViewController.swift */; };
 		DC1CCC8D20E1528A000EF887 /* ChangelogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7120E15287000EF887 /* ChangelogEntry.swift */; };
-		DC1CCC8F20E1528A000EF887 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7320E15287000EF887 /* Plan.swift */; };
 		DC1CCC9020E1528A000EF887 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7420E15287000EF887 /* TestViewController.swift */; };
 		DC1CCC9120E1528A000EF887 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7520E15287000EF887 /* RootViewController.swift */; };
 		DC1CCC9420E1528A000EF887 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCC7820E15288000EF887 /* CustomCell.swift */; };
@@ -83,7 +82,6 @@
 		DC1CCC6F20E15286000EF887 /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		DC1CCC7020E15287000EF887 /* AddHouseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddHouseViewController.swift; sourceTree = "<group>"; };
 		DC1CCC7120E15287000EF887 /* ChangelogEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangelogEntry.swift; sourceTree = "<group>"; };
-		DC1CCC7320E15287000EF887 /* Plan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		DC1CCC7420E15287000EF887 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		DC1CCC7520E15287000EF887 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		DC1CCC7720E15288000EF887 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -215,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				0975ABE320D42348005CC383 /* House.swift */,
-				DC1CCC7320E15287000EF887 /* Plan.swift */,
 				DC8D9BF220BEB4C40069E8AD /* Room.swift */,
 				DC1CCC6D20E15286000EF887 /* Point.swift */,
 				DC8D9BF620BEB8410069E8AD /* Line.swift */,
@@ -525,7 +522,6 @@
 				DC1CCC8C20E1528A000EF887 /* AddHouseViewController.swift in Sources */,
 				DC1CCC9020E1528A000EF887 /* TestViewController.swift in Sources */,
 				DC8D9BF320BEB4C40069E8AD /* Room.swift in Sources */,
-				DC1CCC8F20E1528A000EF887 /* Plan.swift in Sources */,
 				DC1CCC8720E1528A000EF887 /* AppDelegate.swift in Sources */,
 				DC1CCC9820E1528A000EF887 /* AddRoomViewController.swift in Sources */,
 				DC8D9BF720BEB8410069E8AD /* Line.swift in Sources */,

@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class RoomViewController : UIViewController, UIScrollViewDelegate {
-    
     var navigationReference = CustomNavViewController()
     var number = 0
     var room : Room? = nil
@@ -21,6 +20,9 @@ class RoomViewController : UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var changelogCollectionView: UICollectionView!
     @IBOutlet weak var statsCollectionView: UICollectionView!
     
+    /**
+     * Executed after view loaded
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,21 +33,26 @@ class RoomViewController : UIViewController, UIScrollViewDelegate {
         topView.layer.shadowOpacity = 0.7
         topView.layer.shadowRadius = 10
         
-        print(number)
         self.title = "Room " + String(self.room!.number)
     }
     
-    @IBAction func buttonClickShow(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "ARViewController") as! ARViewController
-        
-        vc.room = self.room
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
+    /**
+     * Executed after view loaded
+     */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
+    /**
+     * Executed before view loads
+     */
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    }
+    
+    /**
+     * Executed when the view was scrolled
+     */
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (scrollView.contentOffset.y >=  -50) {
             self.navigationController?.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "navigationBarBackground"), for: .default)
@@ -53,8 +60,20 @@ class RoomViewController : UIViewController, UIScrollViewDelegate {
             self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         }
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    
+    /**
+     * Button click event to start AR view
+     */
+    @IBAction func buttonClickShow(_ sender: Any) {
+        // Get AR view from the storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ARViewController") as! ARViewController
+        
+        // Pass the room object
+        vc.room = self.room
+        
+        // Show view
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -13,33 +13,17 @@ class House {
     var id: String
     var street: String
     var housenumber: String
-    var image: UIImage
+    var owner: String
     
-    init(id: String, street: String, housenumber: String, image: UIImage) {
+    init(id: String, street: String, housenumber: String, owner: String) {
         self.id = id
         self.street = street
         self.housenumber = housenumber
-        self.image = image
+        self.owner = owner
     }
     
     convenience init(parseObject: PFObject) {
-        self.init(id: parseObject["houseId"] as! String, street: parseObject["street"] as! String, housenumber: parseObject["housenumber"] as! String, image: UIImage(named: "house.jpg")!)
-        
-        
-        // Convert PFFile in UIImage
-        /*let file = parseObject["Image"]! as! PFFile
-        
-        file.getDataInBackground(block: {(imageData, error) in
-            if (error == nil)
-            {
-                // Image from Parse
-                self.image = UIImage(data:imageData!)!
-            }
-        })*/
-    }
-    
-    func convertImage(file: PFFile, completion: () -> ()) {
-        completion()
+        self.init(id: parseObject["houseId"] as! String, street: parseObject["street"] as! String, housenumber: parseObject["housenumber"] as! String, owner: parseObject["owner"] as! String)
     }
 }
 
