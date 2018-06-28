@@ -17,6 +17,8 @@ class RoomViewController : UIViewController, UIScrollViewDelegate, UICollectionV
     var changeLogEntries : [ChangelogEntry] = []
     var stromLenght: Float = 0
     var wasserLenght: Float = 0
+    var amountStrom: Int = 0
+    var amountWasser: Int = 0
     @IBOutlet weak var labelLinien: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var StartARTop: RoundedButton!
@@ -44,46 +46,20 @@ class RoomViewController : UIViewController, UIScrollViewDelegate, UICollectionV
      * Executed before view loads
      */
     override func viewWillAppear(_ animated: Bool) {
-        var counter = 0
-        // Count the amount of lines
-        /*let query = PFQuery(className: "Line")
-        query.whereKey("roomId", contains: self.room!.id)
-        query.findObjectsInBackground ( block: { (lines, error) in
-            if error == nil {
-                for line in lines! {
-                    counter = counter + 1
-                    let color = line["Color"] as! String
-                    let newline = Line(start: Point(x: line["StartX"] as! Float, y: line["StartY"] as! Float, z: line["StartZ"] as! Float), end: Point(x: line["EndX"] as! Float, y: line["EndY"] as! Float, z: line["EndZ"] as! Float), color: color)
-                    // Add the line length from every line
-                    self.lineLenght = self.lineLenght + newline.length()
-                    
-                    if(color == "Red")
-                    {
-                        self.stromLenght = self.stromLenght + newline.length()
-                    }
-                    else if(color == "Blue")
-                    {
-                        self.wasserLenght = self.wasserLenght + newline.length()
-                    }
-                }
-            }
-            
-            self.labelLinien?.text = String(counter)
-        })*/
-        
         for line in (room?.lines)! {
-            counter = counter + 1
             if(line.type == 1)
             {
                 self.stromLenght = self.stromLenght + line.length()
+                amountStrom += 1
             }
             else if(line.type == 2)
             {
                 self.wasserLenght = self.wasserLenght + line.length()
+                amountWasser += 1
             }
         }
         
-        self.labelLinien?.text = String(counter)
+        self.labelLinien?.text = String(amountStrom+amountWasser)
     }
     
     /**
@@ -181,16 +157,19 @@ class RoomViewController : UIViewController, UIScrollViewDelegate, UICollectionV
             {
                 cell.cellLabelName.text = "Länge insgesamt"
                 cell.cellLabelDate.text = String(stromLenght + wasserLenght)
+                cell.cellLabelStatus.text = ""
             }
             else if(indexPath.row == 1)
             {
-                cell.cellLabelName.text = "Länge Stromkabel"
+                cell.cellLabelName.text = "Length Power lines"
                 cell.cellLabelDate.text = String(stromLenght)
+                cell.cellLabelStatus.text = "Amount " + String(amountStrom)
             }
             else if(indexPath.row == 2)
             {
-                cell.cellLabelName.text = "Länge Wasserleitungen"
+                cell.cellLabelName.text = "Length Water pipes"
                 cell.cellLabelDate.text = String(wasserLenght)
+                cell.cellLabelStatus.text = "Amount " + String(amountWasser)
             }
             
             cell.layer.cornerRadius = 15
