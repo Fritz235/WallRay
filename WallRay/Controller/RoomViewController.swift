@@ -163,13 +163,13 @@ class RoomViewController : UIViewController, UIScrollViewDelegate, UICollectionV
             {
                 cell.cellLabelName.text = "Length Power lines"
                 cell.cellLabelDate.text = String(stromLenght)
-                cell.cellLabelStatus.text = "Amount " + String(amountStrom)
+                cell.cellLabelStatus.text = "Amount: " + String(amountStrom)
             }
             else if(indexPath.row == 2)
             {
                 cell.cellLabelName.text = "Length Water pipes"
                 cell.cellLabelDate.text = String(wasserLenght)
-                cell.cellLabelStatus.text = "Amount " + String(amountWasser)
+                cell.cellLabelStatus.text = "Amount: " + String(amountWasser)
             }
             
             cell.layer.cornerRadius = 15
