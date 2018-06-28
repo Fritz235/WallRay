@@ -130,7 +130,7 @@ class ARViewController : UIViewController, ARSCNViewDelegate {
      */
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         // Set the view's delegate
         sceneView.delegate = self
         

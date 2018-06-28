@@ -475,16 +475,20 @@
                                     <action selector="buttonClick:" destination="etu-Bd-2ey" eventType="touchUpInside" id="wqQ-Ax-CjC"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Inhaber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ce-ik-efh">
-                                <rect key="frame" x="32" y="258" width="311" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ce-ik-efh">
+                                <rect key="frame" x="32" y="266" width="311" height="21"/>
+                                <color key="tintColor" red="0.035294117649999998" green="0.035294117649999998" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99607843139999996" green="1" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGr-yS-mEZ" userLabel="Text Field Inhaber">
-                                <rect key="frame" x="32" y="318" width="311" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGr-yS-mEZ" userLabel="Text Field Inhaber">
+                                <rect key="frame" x="32" y="303" width="311" height="40"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="1" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.035294117649999998" green="0.035294117649999998" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9ot-ii-NY2"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -493,8 +497,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="YXx-ko-OTk" firstAttribute="centerX" secondItem="rQn-16-FDj" secondAttribute="centerX" id="0QK-fm-Eo6"/>
+                            <constraint firstItem="1ce-ik-efh" firstAttribute="leading" secondItem="rQn-16-FDj" secondAttribute="leadingMargin" constant="16" id="5qX-7r-P85"/>
                             <constraint firstItem="4hG-Ko-klr" firstAttribute="leading" secondItem="rQn-16-FDj" secondAttribute="leadingMargin" constant="16" id="B4X-p1-Jyf"/>
+                            <constraint firstItem="1ce-ik-efh" firstAttribute="top" secondItem="4hG-Ko-klr" secondAttribute="bottom" constant="16" id="HIB-6u-2wg"/>
+                            <constraint firstItem="gGr-yS-mEZ" firstAttribute="leading" secondItem="rQn-16-FDj" secondAttribute="leadingMargin" constant="16" id="I1x-Cs-AK3"/>
                             <constraint firstItem="8VQ-QJ-MVu" firstAttribute="leading" secondItem="rQn-16-FDj" secondAttribute="leadingMargin" constant="16" id="Jce-TJ-qjt"/>
+                            <constraint firstItem="gGr-yS-mEZ" firstAttribute="top" secondItem="1ce-ik-efh" secondAttribute="bottom" constant="16" id="La1-JB-uNt"/>
                             <constraint firstItem="sny-Pt-tYW" firstAttribute="top" secondItem="WJU-u6-kyg" secondAttribute="bottom" constant="16" id="LoH-ym-QNS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WJU-u6-kyg" secondAttribute="trailing" constant="16" id="M0v-fr-BLf"/>
                             <constraint firstItem="4hG-Ko-klr" firstAttribute="top" secondItem="sny-Pt-tYW" secondAttribute="bottom" constant="16" id="YKO-e2-sd6"/>
@@ -505,7 +513,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="YXx-ko-OTk" secondAttribute="trailing" constant="16" id="nBC-hg-sIb"/>
                             <constraint firstItem="WJU-u6-kyg" firstAttribute="leading" secondItem="rQn-16-FDj" secondAttribute="leadingMargin" constant="16" id="piY-YY-O31"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4hG-Ko-klr" secondAttribute="trailing" constant="16" id="qK8-iR-hVq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gGr-yS-mEZ" secondAttribute="trailing" constant="16" id="rvs-gU-jaC"/>
                             <constraint firstItem="8VQ-QJ-MVu" firstAttribute="top" secondItem="7v4-ke-k1u" secondAttribute="bottom" constant="16" id="sGH-SG-UvF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1ce-ik-efh" secondAttribute="trailing" constant="16" id="sii-sK-9PW"/>
                             <constraint firstItem="3jz-zZ-VO4" firstAttribute="top" secondItem="YXx-ko-OTk" secondAttribute="bottom" constant="64" id="y0S-5e-9Y6"/>
                         </constraints>
                     </view>

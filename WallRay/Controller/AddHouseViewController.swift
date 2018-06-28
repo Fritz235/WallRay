@@ -23,6 +23,7 @@ class AddHouseViewController: UIViewController {
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         textFieldStreet.setLeftPaddingPoints(10)
         textFieldHousenumber.setLeftPaddingPoints(10)
+        textFieldOwner.setLeftPaddingPoints(10)
         // Add a tap gesture to hide the keyboard
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
