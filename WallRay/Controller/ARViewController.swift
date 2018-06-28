@@ -58,13 +58,14 @@ extension SCNVector3
             tempXRotation = asinf(lengthXZ/height)
         }
         
-        // If z is below 0 multiply with -1
+        
         if(vector.z >= 0)
         {
             xRotation = tempXRotation
         }
         else
         {
+            // If z is below 0 multiply with -1
             xRotation = -1 * tempXRotation
         }
         
@@ -74,12 +75,15 @@ extension SCNVector3
         {
             let temp = vector.x / (height * sinf(tempXRotation))
             
+            // If temp is not between 1 and -1
             if(temp > 1 || temp < -1)
             {
+                // Take PI/2 as y rotation
                 yRotation = Float.pi / 2
             }
             else
             {
+                // Take asin() from temp
                 yRotation = asinf(temp)
             }
         }
